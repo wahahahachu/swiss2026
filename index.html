@@ -232,7 +232,7 @@ main{ padding:0 0 60px; }
 .gal-pic svg{ width:100%; height:100%; object-fit:contain; }
 .gal-cap{ padding:8px 11px; font-size:12px; line-height:1.5; color:var(--ink-2); border-top:1px solid var(--line); }
 .gal-cap b{ display:block; color:var(--ink); font-size:12.5px; }
-.gal-hint{ font-size:11.5px; color:var(--ink-3); padding:0 16px; margin:-8px 0 12px; }
+.gal-hint{ font-size:11.5px; color:var(--ink-3); padding:0 16px; margin:-8px 0 4px; }
 
 /* 燈箱（可縮放） */
 .lb{ position:fixed; inset:0; z-index:200; background:rgba(8,26,38,.95); display:none; }
@@ -300,11 +300,16 @@ main{ padding:0 0 60px; }
 .spots-map:hover{ border-color:var(--sky); background:#F4FAFE; }
 .spots-map svg{ flex:0 0 auto; width:17px; height:17px; color:var(--sky); }
 .spots-map b{ margin-left:auto; color:var(--ink-3); font-size:15px; }
-.maps{ display:flex; flex-direction:column; gap:7px; }
 .maps .spots-map{ margin-top:0; }
 
-/* 票價／連結 */
-.sub{ font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--sky); margin:15px 0 7px; }
+/* 票價／連結 —— 各區塊之間用細線＋留白明確分隔 */
+.sub{
+  font-size:11.5px; font-weight:700; letter-spacing:.12em; color:var(--sky-deep);
+  margin:26px 0 10px; padding-top:18px; border-top:1px solid var(--line);
+  display:flex; align-items:center; gap:8px;
+}
+.sub::before{ content:""; width:3px; height:13px; border-radius:2px; background:var(--sky); }
+.maps{ display:flex; flex-direction:column; gap:7px; margin-bottom:6px; }
 .fares{ width:100%; border-collapse:collapse; font-size:12.5px; }
 .fares td{ padding:7px 9px; border-bottom:1px dashed var(--line); color:var(--ink-2); }
 .fares td:last-child{ text-align:right; white-space:nowrap; font-weight:700; color:var(--sky-deep); }
@@ -520,359 +525,411 @@ const SVG_DEFS = `<defs>
 </defs>`;
 
 /* ---------- 8/18 琉森市區 ---------- */
-const SVG_LZ = `<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>琉森老城步行環線</title><desc>從南岸的飯店出發，走卡貝爾橋過河到北岸老城，沿三個廣場由東往西走，再從斯普洛耶橋過河回南岸，經耶穌會教堂與湖畔散步道走回飯店。</desc>
-${SVG_DEFS}<rect width="720" height="360" fill="#F7FBFD"/>
-<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">琉森　老城步行環線</text>
+const SVG_LZ = `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>琉森老城步行環線</title><desc>從南岸飯店出發，走卡貝爾橋過河到北岸老城，沿三個廣場由東往西走，再從斯普洛耶橋過河回南岸，經耶穌會教堂與湖畔散步道走回飯店。</desc>
+${SVG_DEFS}<rect width="760" height="400" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">琉森 Luzern　老城步行環線</text>
 <text x="22" y="50" font-size="12" fill="#4E6B79">兩座廊橋各過一次河，環狀不走回頭路　·　整段抓 1.5–2 小時</text>
-<text x="34" y="76" font-size="11" fill="#8CA3AF">西（上游）</text>
-<text x="686" y="76" font-size="11" fill="#8CA3AF" text-anchor="end">東（湖）</text>
-<rect x="22" y="84" width="676" height="96" rx="14" fill="#E3EDE0"/>
-<text x="38" y="104" font-size="11.5" font-weight="700" fill="#6C8B62">北岸　Altstadt 老城</text>
-<rect x="22" y="180" width="676" height="52" fill="#A8D8F0" opacity=".85"/>
-<text x="40" y="212" font-size="11.5" font-weight="700" fill="#2A6B8F">Reuss 河</text>
-<rect x="22" y="232" width="676" height="94" rx="14" fill="#EFE7D6"/>
-<text x="38" y="318" font-size="11.5" font-weight="700" fill="#96814F">南岸　飯店・車站方向</text>
-<rect x="484" y="172" width="26" height="68" rx="7" fill="#C9A97A"/>
-<rect x="196" y="172" width="26" height="68" rx="7" fill="#C9A97A"/>
-<path d="M594,258 L516,224" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M492,168 L468,140" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M430,132 L370,132" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M298,132 L246,148" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M204,172 L204,208" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M212,252 L282,268" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M336,276 L560,276" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<text x="26" y="76" font-size="11" fill="#8CA3AF">西（上游）</text>
+<text x="734" y="76" font-size="11" fill="#8CA3AF" text-anchor="end">東（琉森湖）</text>
+<rect x="22" y="86" width="716" height="118" rx="16" fill="#E3EDE0"/>
+<text x="36" y="106" font-size="11" font-weight="700" fill="#6C8B62">北岸　Altstadt 老城</text>
+<rect x="22" y="204" width="716" height="54" fill="#A8D8F0" opacity=".85"/>
+<text x="36" y="236" font-size="11" font-weight="700" fill="#2A6B8F">Reuss 羅伊斯河</text>
+<rect x="22" y="258" width="716" height="112" rx="16" fill="#EFE7D6"/>
+<text x="36" y="360" font-size="11" font-weight="700" fill="#96814F">南岸　飯店・車站方向</text>
+<rect x="516" y="196" width="26" height="70" rx="7" fill="#C9A97A"/>
+<rect x="212" y="196" width="26" height="70" rx="7" fill="#C9A97A"/>
+<path d="M622,286 L546,250" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M522,192 L500,166" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M462,158 L400,158" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M320,158 L262,172" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M222,196 L222,222" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M228,278 L300,294" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M356,302 L584,302" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
 <g font-weight="700" font-size="11.5">
-<circle cx="608" cy="268" r="15" fill="#6B7C86"/><text x="608" y="273" fill="#fff" text-anchor="middle" font-size="12">1</text>
-<text x="632" y="266" fill="#17323F">飯店</text><text x="632" y="281" fill="#8CA3AF" font-size="10" font-weight="400">Frankenstrasse 6</text>
-<circle cx="497" cy="206" r="15" fill="#2E8FD4"/><text x="497" y="211" fill="#fff" text-anchor="middle" font-size="12">2</text>
-<text x="497" y="170" fill="#17323F" text-anchor="middle">Kapellbrücke</text>
-<text x="497" y="158" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">卡貝爾橋・水塔</text>
-<circle cx="450" cy="128" r="15" fill="#4A7C6F"/><text x="450" y="133" fill="#fff" text-anchor="middle" font-size="12">3</text>
-<text x="450" y="112" fill="#17323F" text-anchor="middle">聖彼得教堂</text>
-<circle cx="334" cy="128" r="15" fill="#4A7C6F"/><text x="334" y="133" fill="#fff" text-anchor="middle" font-size="12">4</text>
-<text x="334" y="112" fill="#17323F" text-anchor="middle">老城三廣場</text>
-<text x="334" y="160" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">Kornmarkt → Hirschenplatz → Weinmarkt</text>
-<circle cx="209" cy="206" r="15" fill="#2E8FD4"/><text x="209" y="211" fill="#fff" text-anchor="middle" font-size="12">5</text>
-<text x="209" y="170" fill="#17323F" text-anchor="middle">Spreuerbrücke</text>
-<text x="209" y="158" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">死亡之舞・停 20 分</text>
-<circle cx="298" cy="272" r="15" fill="#4A7C6F"/><text x="298" y="277" fill="#fff" text-anchor="middle" font-size="12">6</text>
-<text x="298" y="300" fill="#17323F" text-anchor="middle">耶穌會教堂</text>
-<text x="448" y="270" fill="#4E6B79" font-size="11" font-weight="400" text-anchor="middle">湖畔散步道　走回飯店</text>
+<circle cx="636" cy="294" r="15" fill="#6B7C86"/><text x="636" y="299" fill="#fff" text-anchor="middle" font-size="12">1</text>
+<text x="660" y="290" fill="#17323F">飯店</text><text x="660" y="304" fill="#8CA3AF" font-size="10" font-weight="400">Hotel Alpina</text>
+<circle cx="529" cy="230" r="15" fill="#2E8FD4"/><text x="529" y="235" fill="#fff" text-anchor="middle" font-size="12">2</text>
+<text x="529" y="186" fill="#17323F" text-anchor="middle">卡貝爾橋・水塔</text>
+<text x="529" y="172" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">Kapellbrücke・Wasserturm</text>
+<circle cx="482" cy="154" r="15" fill="#4A7C6F"/><text x="482" y="159" fill="#fff" text-anchor="middle" font-size="12">3</text>
+<text x="482" y="132" fill="#17323F" text-anchor="middle">聖彼得教堂</text>
+<text x="482" y="120" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">Peterskapelle</text>
+<circle cx="358" cy="154" r="15" fill="#4A7C6F"/><text x="358" y="159" fill="#fff" text-anchor="middle" font-size="12">4</text>
+<text x="358" y="132" fill="#17323F" text-anchor="middle">老城三廣場</text>
+<text x="358" y="120" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">Kornmarkt → Hirschenplatz → Weinmarkt</text>
+<text x="358" y="186" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">由東往西走，彼此相隔幾分鐘</text>
+<circle cx="225" cy="230" r="15" fill="#2E8FD4"/><text x="225" y="235" fill="#fff" text-anchor="middle" font-size="12">5</text>
+<text x="225" y="186" fill="#17323F" text-anchor="middle">斯普洛耶橋</text>
+<text x="225" y="172" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">Spreuerbrücke</text>
+<text x="150" y="258" fill="#B15A16" font-size="10" font-weight="700">死亡之舞・停 20 分</text>
+<circle cx="316" cy="298" r="15" fill="#4A7C6F"/><text x="316" y="303" fill="#fff" text-anchor="middle" font-size="12">6</text>
+<text x="316" y="328" fill="#17323F" text-anchor="middle">耶穌會教堂</text>
+<text x="316" y="341" fill="#8CA3AF" font-size="10" font-weight="400" text-anchor="middle">Jesuitenkirche</text>
+<text x="470" y="292" fill="#4E6B79" font-size="11" font-weight="400" text-anchor="middle">湖畔散步道　走回飯店</text>
 </g>
 <g font-size="11" fill="#4E6B79" font-weight="400">
-<circle cx="30" cy="348" r="6" fill="#6B7C86"/><text x="44" y="352">起點・終點</text>
-<circle cx="140" cy="348" r="6" fill="#2E8FD4"/><text x="154" y="352">過河點（兩座廊橋）</text>
-<circle cx="298" cy="348" r="6" fill="#4A7C6F"/><text x="312" y="352">主要景點</text>
-<text x="418" y="352" fill="#B15A16" font-weight="700">⚠ 獅子紀念碑不在環線上，離老城還要走 10–15 分鐘</text>
-</g></svg>`
+<circle cx="30" cy="388" r="6" fill="#6B7C86"/><text x="44" y="392">起點・終點</text>
+<circle cx="140" cy="388" r="6" fill="#2E8FD4"/><text x="154" y="392">過河點（兩座廊橋）</text>
+<circle cx="298" cy="388" r="6" fill="#4A7C6F"/><text x="312" y="392">主要景點</text>
+<text x="430" y="392" fill="#B15A16" font-weight="700">⚠ 獅子紀念碑 Löwendenkmal 不在環線上，另需走 10–15 分鐘</text>
+</g></svg>`;
 
 /* ---------- 8/19 皮拉圖斯山頂 ---------- */
-const SVG_PL = `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>皮拉圖斯山頂遊覽區三個觀景點</title><desc>山頂旅館為中心，Esel 15–20 分鐘、Tomlishorn 來回 1.5–2 小時、Drachenweg 沿懸崖步道，建議優先順序 Esel 大於 Tomlishorn 大於 Drachenweg。</desc>
-${SVG_DEFS}<rect width="720" height="320" fill="#F7FBFD"/>
-<text x="22" y="32" font-size="16" font-weight="700" fill="#17323F">皮拉圖斯　山頂遊覽區</text>
-<text x="22" y="52" font-size="12" fill="#4E6B79">到山頂第一件事：先預約下山齒軌列車班次</text>
-<path d="M40,250 C180,200 260,140 360,132 C460,140 540,200 680,250 Z" fill="#E6EFF4"/>
-<rect x="286" y="128" width="148" height="40" rx="11" fill="#1B6494"/>
-<text x="360" y="146" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Hotel Pilatus-Kulm</text>
-<text x="360" y="161" font-size="10" fill="#B9D6E8" text-anchor="middle">山頂・纜車抵達點</text>
-<path d="M282,148 L206,148" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M438,148 L520,148" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M360,172 L360,224" fill="none" stroke="#8CA3AF" stroke-width="2.2" stroke-dasharray="5 5" marker-end="url(#aS)"/>
-<g font-family="sans-serif">
-<rect x="56" y="122" width="148" height="52" rx="11" fill="#2E8FD4"/>
-<text x="130" y="142" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Esel</text>
-<text x="130" y="158" font-size="10.5" fill="#DCEDF8" text-anchor="middle">15–20 分鐘登頂・看完整湖區</text>
-<rect x="70" y="94" width="120" height="19" rx="9.5" fill="#F0873C"/>
-<text x="130" y="108" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">① CP 值最高　先去</text>
-<rect x="520" y="122" width="150" height="52" rx="11" fill="#2E8FD4"/>
-<text x="595" y="142" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Tomlishorn</text>
-<text x="595" y="158" font-size="10.5" fill="#DCEDF8" text-anchor="middle">來回 1.5–2 小時・360 度</text>
-<rect x="530" y="94" width="130" height="19" rx="9.5" fill="#C4653F"/>
-<text x="595" y="108" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">② 景色最好　最花時間</text>
-<rect x="278" y="228" width="164" height="48" rx="11" fill="#E9F4FC" stroke="#8CA3AF"/>
-<text x="360" y="247" font-size="12.5" font-weight="700" fill="#4E6B79" text-anchor="middle">Drachenweg・Oberhaupt</text>
-<text x="360" y="263" font-size="10.5" fill="#8CA3AF" text-anchor="middle">沿懸崖步道・有時間再去</text>
-<rect x="300" y="200" width="120" height="19" rx="9.5" fill="#8CA3AF"/>
-<text x="360" y="214" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">③ 彈性　可捨棄</text>
-</g>
-<rect x="22" y="200" width="192" height="76" rx="11" fill="#FFF4EA" stroke="#FBDCC0"/>
-<text x="36" y="220" font-size="11" font-weight="700" fill="#B15A16">⏰ 硬性時間</text>
-<text x="36" y="240" font-size="11" fill="#B15A16">先預約下山齒軌班次</text>
-<text x="36" y="257" font-size="11" fill="#B15A16">Tomlishorn 回程抓 2 小時</text>
-<text x="36" y="271" font-size="10" fill="#8CA3AF">提早 15 分鐘去月台等車</text>
-<text x="466" y="228" font-size="11" fill="#4E6B79">山頂遊覽區建議停留</text>
-<text x="466" y="252" font-size="20" font-weight="700" fill="#1B6494">4.5–5.5 小時</text>
-<text x="466" y="270" font-size="10" fill="#8CA3AF">依腳程與休息時間</text>
+const SVG_PL = `<svg viewBox="0 0 760 350" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>皮拉圖斯山頂遊覽區</title><desc>山頂旅館為中心，Esel 十五到二十分鐘，Tomlishorn 來回一個半到兩小時，Drachenweg 沿懸崖步道，建議優先順序 Esel 大於 Tomlishorn 大於 Drachenweg。</desc>
+${SVG_DEFS}<rect width="760" height="350" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">皮拉圖斯 Pilatus　山頂遊覽區</text>
+<text x="22" y="50" font-size="12" fill="#4E6B79">到山頂第一件事：先預約下山齒軌列車班次</text>
+<path d="M40,278 C190,222 280,160 380,150 C480,160 570,222 720,278 Z" fill="#E6EFF4"/>
+<rect x="300" y="146" width="160" height="42" rx="11" fill="#1B6494"/>
+<text x="380" y="165" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">山頂旅館</text>
+<text x="380" y="180" font-size="10" fill="#B9D6E8" text-anchor="middle">Hotel Pilatus-Kulm・纜車抵達點</text>
+<path d="M296,167 L226,167" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M464,167 L536,167" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M380,192 L380,236" fill="none" stroke="#8CA3AF" stroke-width="2.2" stroke-dasharray="5 5" marker-end="url(#aS)"/>
+<rect x="70" y="140" width="152" height="54" rx="11" fill="#2E8FD4"/>
+<text x="146" y="161" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Esel</text>
+<text x="146" y="178" font-size="10.5" fill="#DCEDF8" text-anchor="middle">15–20 分登頂・看完整湖區</text>
+<rect x="84" y="110" width="124" height="20" rx="10" fill="#F0873C"/>
+<text x="146" y="124" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">① CP 值最高　先去</text>
+<rect x="538" y="140" width="156" height="54" rx="11" fill="#2E8FD4"/>
+<text x="616" y="161" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Tomlishorn</text>
+<text x="616" y="178" font-size="10.5" fill="#DCEDF8" text-anchor="middle">來回 1.5–2 小時・360 度全景</text>
+<rect x="550" y="110" width="132" height="20" rx="10" fill="#C4653F"/>
+<text x="616" y="124" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">② 景色最好　最花時間</text>
+<rect x="292" y="240" width="176" height="52" rx="11" fill="#E9F4FC" stroke="#8CA3AF"/>
+<text x="380" y="260" font-size="12" font-weight="700" fill="#4E6B79" text-anchor="middle">Drachenweg・Oberhaupt</text>
+<text x="380" y="277" font-size="10.5" fill="#8CA3AF" text-anchor="middle">懸崖步道・有時間再去</text>
+<rect x="316" y="212" width="128" height="20" rx="10" fill="#8CA3AF"/>
+<text x="380" y="226" font-size="10.5" font-weight="700" fill="#fff" text-anchor="middle">③ 彈性　可捨棄</text>
+<rect x="22" y="216" width="196" height="84" rx="11" fill="#FFF4EA" stroke="#FBDCC0"/>
+<text x="36" y="238" font-size="11" font-weight="700" fill="#B15A16">⏰ 硬性時間</text>
+<text x="36" y="258" font-size="11" fill="#B15A16">先預約下山齒軌班次</text>
+<text x="36" y="276" font-size="11" fill="#B15A16">Tomlishorn 回程抓 2 小時</text>
+<text x="36" y="292" font-size="10" fill="#8CA3AF">提早 15 分鐘去月台等車</text>
+<text x="700" y="240" font-size="11" fill="#4E6B79" text-anchor="end">山頂遊覽區建議停留</text>
+<text x="700" y="268" font-size="21" font-weight="700" fill="#1B6494" text-anchor="end">4.5–5.5 小時</text>
+<text x="700" y="288" font-size="10" fill="#8CA3AF" text-anchor="end">依腳程與休息時間</text>
 </svg>`;
 
 /* ---------- 8/23 伯恩老城 ---------- */
-const SVG_BN = `<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>伯恩老城步行動線</title><desc>上午沿老城主街東行至大教堂，過 Nydeggbrücke 到熊公園與玫瑰園，回程改走 Kirchenfeldbrücke 經聯邦國會大廈回車站，不走回頭路。</desc>
-${SVG_DEFS}<rect width="720" height="330" fill="#F7FBFD"/>
+const SVG_BN = `<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>伯恩老城步行動線</title><desc>上午沿老城主街東行至大教堂，過 Nydeggbrücke 到熊公園與玫瑰園，回程改走 Kirchenfeldbrücke 經聯邦國會大廈回飯店。</desc>
+${SVG_DEFS}<rect width="760" height="470" fill="#F7FBFD"/>
 <text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">伯恩　老城步行動線</text>
-<text x="22" y="50" font-size="12" fill="#4E6B79">全程步行・回程改走 Kirchenfeldbrücke，不走回頭路</text>
-<path d="M0,150 L720,150 L720,186 C600,186 584,268 452,268 L286,268 C172,268 156,186 0,186 Z" fill="#A8D8F0" opacity=".72"/>
-<text x="652" y="176" font-size="11" font-weight="700" fill="#2A6B8F">Aare 河</text>
-<rect x="40" y="76" width="644" height="62" rx="31" fill="#E8DCC4"/>
-<text x="52" y="70" font-size="11" font-weight="700" fill="#96814F">Altstadt 老城（中世紀拱廊）</text>
-<rect x="252" y="204" width="292" height="98" rx="42" fill="#D9E9D4"/>
-<text x="268" y="316" font-size="11" font-weight="700" fill="#6C8B62">河對岸　熊公園・玫瑰園</text>
-<rect x="556" y="138" width="22" height="82" rx="7" fill="#D9C9A6"/>
-<rect x="266" y="138" width="22" height="82" rx="7" fill="#D9C9A6"/>
-<path d="M104,108 L520,108" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
-<path d="M550,120 L568,164 L566,200 L552,232 L470,262 L392,272 L326,250 L280,206 L278,158 L268,132 L200,112 L120,108"
+<text x="22" y="50" font-size="12" fill="#4E6B79">全程步行　·　回程改走 Kirchenfeldbrücke 尼德格橋以南，不走回頭路</text>
+
+<rect x="26" y="128" width="708" height="62" rx="31" fill="#E8DCC4"/>
+<text x="30" y="78" font-size="11" font-weight="700" fill="#96814F">北岸　Altstadt 老城（中世紀拱廊）</text>
+<path d="M0,206 L760,206 L760,244 C640,244 622,330 486,330 L306,330 C182,330 164,244 0,244 Z" fill="#A8D8F0" opacity=".7"/>
+<text x="694" y="232" font-size="11" font-weight="700" fill="#2A6B8F">Aare 阿勒河</text>
+<rect x="272" y="266" width="308" height="98" rx="44" fill="#D9E9D4"/>
+<text x="286" y="392" font-size="11" font-weight="700" fill="#6C8B62">河對岸　熊公園・玫瑰園</text>
+<rect x="592" y="186" width="22" height="86" rx="7" fill="#D0BC94"/>
+<rect x="286" y="186" width="22" height="86" rx="7" fill="#D0BC94"/>
+
+<path d="M110,159 L556,159" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M588,172 L604,214 L602,252 L588,284 L500,318 L406,330 L340,306 L298,258 L296,208 L288,182 L212,162 L128,158"
       fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+
 <g font-weight="700" font-size="11.5">
-<circle cx="90" cy="108" r="14" fill="#6B7C86"/><text x="90" y="113" fill="#fff" text-anchor="middle" font-size="12">1</text>
-<text x="90" y="70" fill="#17323F" text-anchor="middle">Bahnhof</text>
-<circle cx="182" cy="108" r="14" fill="#4A7C6F"/><text x="182" y="113" fill="#fff" text-anchor="middle" font-size="12">2</text>
-<text x="182" y="70" fill="#17323F" text-anchor="middle">Zytglogge</text>
-<text x="182" y="56" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">整點前 5 分鐘到</text>
-<circle cx="272" cy="108" r="14" fill="#4A7C6F"/><text x="272" y="113" fill="#fff" text-anchor="middle" font-size="12">3</text>
-<text x="272" y="70" fill="#17323F" text-anchor="middle">Kramgasse</text>
-<circle cx="366" cy="108" r="14" fill="#4A7C6F"/><text x="366" y="113" fill="#fff" text-anchor="middle" font-size="12">4</text>
-<text x="366" y="70" fill="#17323F" text-anchor="middle">Einsteinhaus</text>
-<circle cx="458" cy="108" r="14" fill="#4A7C6F"/><text x="458" y="113" fill="#fff" text-anchor="middle" font-size="12">5</text>
-<text x="458" y="70" fill="#17323F" text-anchor="middle">Münster</text>
-<circle cx="536" cy="108" r="14" fill="#C4653F"/><text x="536" y="113" fill="#fff" text-anchor="middle" font-size="12">6</text>
-<text x="600" y="112" fill="#17323F">Nydeggbrücke</text>
-<circle cx="552" cy="232" r="14" fill="#C4653F"/><text x="552" y="237" fill="#fff" text-anchor="middle" font-size="12">7</text>
-<text x="574" y="236" fill="#17323F">BärenPark</text>
-<circle cx="392" cy="272" r="14" fill="#C4653F"/><text x="392" y="277" fill="#fff" text-anchor="middle" font-size="12">8</text>
-<text x="392" y="302" fill="#17323F" text-anchor="middle">Rosengarten</text>
-<text x="392" y="316" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">今日重頭戲・近傍晚光線最好</text>
-<circle cx="278" cy="206" r="14" fill="#C4653F"/><text x="278" y="211" fill="#fff" text-anchor="middle" font-size="12">9</text>
-<text x="256" y="210" fill="#17323F" text-anchor="end">Kirchenfeldbrücke</text>
-<circle cx="276" cy="140" r="14" fill="#C4653F"/><text x="276" y="145" fill="#fff" text-anchor="middle" font-size="11">10</text>
-<text x="254" y="144" fill="#17323F" text-anchor="end">Bundeshaus</text>
+<circle cx="96" cy="159" r="15" fill="#6B7C86"/><text x="96" y="164" fill="#fff" text-anchor="middle" font-size="12">1</text>
+<text x="96" y="110" fill="#17323F" text-anchor="middle">飯店</text>
+<text x="96" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Aarbergergasse 55</text>
+
+<circle cx="192" cy="159" r="15" fill="#4A7C6F"/><text x="192" y="164" fill="#fff" text-anchor="middle" font-size="12">2</text>
+<text x="192" y="110" fill="#17323F" text-anchor="middle">時鐘塔</text>
+<text x="192" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Zytglogge</text>
+<text x="192" y="212" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="700">整點前 5 分鐘到</text>
+
+<circle cx="288" cy="159" r="15" fill="#4A7C6F"/><text x="288" y="164" fill="#fff" text-anchor="middle" font-size="12">3</text>
+<text x="288" y="110" fill="#17323F" text-anchor="middle">老城拱廊街</text>
+<text x="288" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Kramgasse</text>
+
+<circle cx="392" cy="159" r="15" fill="#4A7C6F"/><text x="392" y="164" fill="#fff" text-anchor="middle" font-size="12">4</text>
+<text x="392" y="110" fill="#17323F" text-anchor="middle">愛因斯坦故居</text>
+<text x="392" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Einsteinhaus</text>
+
+<circle cx="492" cy="159" r="15" fill="#4A7C6F"/><text x="492" y="164" fill="#fff" text-anchor="middle" font-size="12">5</text>
+<text x="492" y="110" fill="#17323F" text-anchor="middle">伯恩大教堂</text>
+<text x="492" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Berner Münster</text>
+
+<circle cx="572" cy="159" r="15" fill="#C4653F"/><text x="572" y="164" fill="#fff" text-anchor="middle" font-size="12">6</text>
+<text x="628" y="150" fill="#17323F">尼德格橋</text>
+<text x="628" y="164" fill="#8CA3AF" font-size="10" font-weight="400">Nydeggbrücke</text>
+
+<circle cx="588" cy="284" r="15" fill="#C4653F"/><text x="588" y="289" fill="#fff" text-anchor="middle" font-size="12">7</text>
+<text x="612" y="280" fill="#17323F">熊公園</text>
+<text x="612" y="294" fill="#8CA3AF" font-size="10" font-weight="400">BärenPark</text>
+
+<circle cx="406" cy="330" r="15" fill="#C4653F"/><text x="406" y="335" fill="#fff" text-anchor="middle" font-size="12">8</text>
+<text x="406" y="360" fill="#17323F" text-anchor="middle">玫瑰園 Rosengarten</text>
+<text x="406" y="374" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">今日重頭戲・近傍晚光線最好</text>
+
+<circle cx="297" cy="258" r="15" fill="#C4653F"/><text x="297" y="263" fill="#fff" text-anchor="middle" font-size="12">9</text>
+<text x="272" y="254" fill="#17323F" text-anchor="end">基希菲德橋</text>
+<text x="272" y="268" fill="#8CA3AF" text-anchor="end" font-size="10" font-weight="400">Kirchenfeldbrücke</text>
+
+<circle cx="292" cy="192" r="15" fill="#C4653F"/><text x="292" y="197" fill="#fff" text-anchor="middle" font-size="11">10</text>
+<text x="266" y="188" fill="#17323F" text-anchor="end">聯邦國會大廈</text>
+<text x="266" y="202" fill="#8CA3AF" text-anchor="end" font-size="10" font-weight="400">Bundeshaus</text>
 </g>
+
 <g font-size="11" fill="#4E6B79" font-weight="400">
-<circle cx="30" cy="322" r="6" fill="#4A7C6F"/><text x="44" y="326">上午　老城主街東行</text>
-<circle cx="184" cy="322" r="6" fill="#C4653F"/><text x="198" y="326">下午–傍晚　過河・玫瑰園・夜景</text>
-<text x="440" y="326" fill="#B15A16" font-weight="700">⚠ 過橋可同時拍到聯邦大廈＋大教堂＋阿勒河</text>
+<circle cx="30" cy="430" r="6" fill="#4A7C6F"/><text x="44" y="434">上午　老城主街東行</text>
+<circle cx="196" cy="430" r="6" fill="#C4653F"/><text x="210" y="434">下午–傍晚　過河・玫瑰園・夜景</text>
+<text x="30" y="456" fill="#B15A16" font-weight="700">⚠ 走 Kirchenfeldbrücke 過橋時可同時拍到聯邦大廈＋大教堂＋阿勒河</text>
 </g></svg>`;
 
 /* ---------- 8/26 蘇黎世市區 ---------- */
-const SVG_ZH = `<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>蘇黎世市區步行動線</title><desc>從中央車站上 Polyterrasse，沿東岸 Niederdorf 老城到大教堂，過 Münsterbrücke 到西岸 Fraumünster 與林登霍夫，最後到湖畔看夕陽。</desc>
-${SVG_DEFS}<rect width="720" height="330" fill="#F7FBFD"/>
-<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">蘇黎世　市區步行動線</text>
-<text x="22" y="50" font-size="12" fill="#4E6B79">全程步行・只過一次橋，順著西岸走到湖邊收尾</text>
-<path d="M348,64 C368,130 336,180 356,238 L404,238 C384,180 416,130 396,64 Z" fill="#A8D8F0" opacity=".8"/>
-<path d="M330,238 C330,296 420,300 430,270 C440,238 700,246 700,246 L700,300 L330,300 Z" fill="#A8D8F0" opacity=".62"/>
-<text x="372" y="150" font-size="10.5" font-weight="700" fill="#2A6B8F" text-anchor="middle" transform="rotate(-90 372 150)">Limmat</text>
-<text x="600" y="286" font-size="11.5" font-weight="700" fill="#2A6B8F">Zürichsee 蘇黎世湖</text>
-<rect x="344" y="188" width="64" height="18" rx="6" fill="#D9C9A6"/>
-<text x="376" y="182" font-size="10" font-weight="700" fill="#96814F" text-anchor="middle">Münsterbrücke</text>
-<text x="150" y="74" font-size="11" font-weight="700" fill="#2E8FD4">東岸</text>
-<text x="580" y="74" font-size="11" font-weight="700" fill="#C4653F">西岸</text>
-<path d="M108,116 L172,96" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M212,104 L262,132" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M282,152 L300,186" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M318,196 L340,196" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#aO)"/>
-<path d="M412,196 L440,166" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M470,142 L528,120" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M556,138 L562,214" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+const SVG_ZH = `<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>蘇黎世市區步行動線</title><desc>從中央車站上 Polyterrasse 觀景平台，沿東岸穿過 Niederdorf 老城巷弄到大教堂，過教堂橋到西岸的聖母教堂與林登霍夫山，最後到湖畔看夕陽。</desc>
+${SVG_DEFS}<rect width="760" height="380" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">蘇黎世 Zürich　市區步行動線</text>
+<text x="22" y="50" font-size="12" fill="#4E6B79">只過一次橋，順著西岸走到湖邊收尾</text>
+<path d="M356,70 C376,140 344,196 364,258 L412,258 C392,196 424,140 404,70 Z" fill="#A8D8F0" opacity=".8"/>
+<path d="M330,258 C330,322 424,326 434,294 C444,258 736,266 736,266 L736,340 L330,340 Z" fill="#A8D8F0" opacity=".6"/>
+<text x="384" y="160" font-size="10" font-weight="700" fill="#2A6B8F" text-anchor="middle" transform="rotate(-90 384 160)">Limmat 利馬特河</text>
+<text x="600" y="322" font-size="11.5" font-weight="700" fill="#2A6B8F">Zürichsee 蘇黎世湖</text>
+<rect x="352" y="200" width="64" height="18" rx="6" fill="#D9C9A6"/>
+<text x="384" y="192" font-size="10" font-weight="700" fill="#96814F" text-anchor="middle">教堂橋 Münsterbrücke</text>
+<text x="150" y="78" font-size="11" font-weight="700" fill="#2E8FD4">東岸</text>
+<text x="620" y="78" font-size="11" font-weight="700" fill="#C4653F">西岸（過橋後）</text>
+<path d="M112,124 L176,102" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M216,112 L266,142" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M286,164 L304,198" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M326,208 L348,208" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="6 4" marker-end="url(#aO)"/>
+<path d="M420,208 L448,178" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M482,152 L544,128" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M572,148 L580,232" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
 <g font-weight="700" font-size="11.5">
-<circle cx="90" cy="122" r="14" fill="#6B7C86"/><text x="90" y="127" fill="#fff" text-anchor="middle" font-size="12">1</text>
-<text x="90" y="158" fill="#17323F" text-anchor="middle">Zürich HB</text>
-<text x="90" y="172" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">行李寄置物櫃</text>
-<circle cx="190" cy="90" r="14" fill="#2E8FD4"/><text x="190" y="95" fill="#fff" text-anchor="middle" font-size="12">2</text>
-<text x="190" y="66" fill="#17323F" text-anchor="middle">Polyterrasse</text>
-<text x="190" y="122" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">可搭 Polybahn</text>
-<circle cx="274" cy="142" r="14" fill="#2E8FD4"/><text x="274" y="147" fill="#fff" text-anchor="middle" font-size="12">3</text>
-<text x="222" y="146" fill="#17323F" text-anchor="end">Niederdorf</text>
-<circle cx="306" cy="196" r="14" fill="#2E8FD4"/><text x="306" y="201" fill="#fff" text-anchor="middle" font-size="12">4</text>
-<text x="288" y="232" fill="#17323F" text-anchor="middle">Grossmünster</text>
-<text x="288" y="246" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">登塔 CHF 5</text>
-<circle cx="450" cy="158" r="14" fill="#C4653F"/><text x="450" y="163" fill="#fff" text-anchor="middle" font-size="12">5</text>
-<text x="450" y="134" fill="#17323F" text-anchor="middle">Fraumünster</text>
-<text x="450" y="120" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">夏卡爾彩窗 CHF 5</text>
-<circle cx="542" cy="112" r="14" fill="#C4653F"/><text x="542" y="117" fill="#fff" text-anchor="middle" font-size="12">6</text>
-<text x="566" y="108" fill="#17323F">Lindenhof</text>
-<text x="566" y="122" fill="#8CA3AF" font-size="10" font-weight="400">俯瞰老城全景</text>
-<circle cx="566" cy="228" r="14" fill="#C4653F"/><text x="566" y="233" fill="#fff" text-anchor="middle" font-size="12">7</text>
-<text x="592" y="226" fill="#17323F">Bürkliplatz</text>
-<text x="592" y="240" fill="#B15A16" font-size="10" font-weight="400">傍晚湖畔夕陽</text>
+<circle cx="94" cy="130" r="14" fill="#6B7C86"/><text x="94" y="135" fill="#fff" text-anchor="middle" font-size="12">1</text>
+<text x="94" y="166" fill="#17323F" text-anchor="middle">蘇黎世中央車站</text>
+<text x="94" y="179" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Zürich HB・行李寄置物櫃</text>
+<circle cx="196" cy="96" r="14" fill="#2E8FD4"/><text x="196" y="101" fill="#fff" text-anchor="middle" font-size="12">2</text>
+<text x="196" y="72" fill="#17323F" text-anchor="middle">觀景平台</text>
+<text x="196" y="130" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Polyterrasse・可搭 Polybahn</text>
+<circle cx="278" cy="152" r="14" fill="#2E8FD4"/><text x="278" y="157" fill="#fff" text-anchor="middle" font-size="12">3</text>
+<text x="228" y="150" fill="#17323F" text-anchor="end">老城巷弄</text>
+<text x="228" y="163" fill="#8CA3AF" text-anchor="end" font-size="10" font-weight="400">Niederdorf・沿路穿過</text>
+<circle cx="312" cy="208" r="14" fill="#2E8FD4"/><text x="312" y="213" fill="#fff" text-anchor="middle" font-size="12">4</text>
+<text x="290" y="248" fill="#17323F" text-anchor="middle">蘇黎世大教堂</text>
+<text x="290" y="261" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Grossmünster・登塔 CHF 5</text>
+<circle cx="458" cy="168" r="14" fill="#C4653F"/><text x="458" y="173" fill="#fff" text-anchor="middle" font-size="12">5</text>
+<text x="458" y="140" fill="#17323F" text-anchor="middle">聖母教堂</text>
+<text x="458" y="127" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Fraumünster・夏卡爾彩窗 CHF 5</text>
+<circle cx="558" cy="120" r="14" fill="#C4653F"/><text x="558" y="125" fill="#fff" text-anchor="middle" font-size="12">6</text>
+<text x="582" y="116" fill="#17323F">林登霍夫山</text>
+<text x="582" y="129" fill="#8CA3AF" font-size="10" font-weight="400">Lindenhof・俯瞰老城全景</text>
+<circle cx="582" cy="246" r="14" fill="#C4653F"/><text x="582" y="251" fill="#fff" text-anchor="middle" font-size="12">7</text>
+<text x="606" y="242" fill="#17323F">湖濱廣場</text>
+<text x="606" y="255" fill="#B15A16" font-size="10" font-weight="400">Bürkliplatz・傍晚夕陽</text>
 </g>
 <g font-size="11" fill="#4E6B79" font-weight="400">
-<circle cx="30" cy="322" r="6" fill="#2E8FD4"/><text x="44" y="326">東岸</text>
-<circle cx="96" cy="322" r="6" fill="#C4653F"/><text x="110" y="326">西岸（過橋後）</text>
-<text x="238" y="326" fill="#B15A16" font-weight="700">⚠ 橋上可同時拍到兩座教堂塔樓，是經典機位</text>
+<circle cx="30" cy="358" r="6" fill="#2E8FD4"/><text x="44" y="362">東岸</text>
+<circle cx="96" cy="358" r="6" fill="#C4653F"/><text x="110" y="362">西岸（過橋後）</text>
+<text x="238" y="362" fill="#B15A16" font-weight="700">⚠ 教堂橋上可同時拍到兩座教堂塔樓，是經典機位</text>
 </g></svg>`;
 
 /* ---------- 8/24 洛特洪峰＋土撥鼠小徑 ---------- */
-const SVG_MW = `<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>洛特洪峰與土撥鼠小徑動線</title><desc>先搭纜車直上 Rothorn 山頂，再回到 Blauherd 走 Stellisee 與土撥鼠小徑，一路下坡經四座湖回到 Sunnegga。</desc>
-${SVG_DEFS}<rect width="720" height="330" fill="#F7FBFD"/>
-<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">洛特洪峰　＋　土撥鼠小徑 Murmelweg</text>
-<text x="22" y="50" font-size="12" fill="#4E6B79">天氣好先衝山頂（雲霧沒有補救機會）→ 回程再拍 Stellisee 倒影</text>
-<path d="M30,268 C160,214 300,120 430,96 C540,110 620,190 700,268 Z" fill="#E6EFF4"/>
-<path d="M76,246 L142,204" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M190,190 L252,160" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M300,144 L364,116" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M420,128 C400,168 330,176 292,172" fill="none" stroke="#8CA3AF" stroke-width="2" stroke-dasharray="4 5" marker-end="url(#aS)"/>
-<path d="M282,186 L330,222" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
-<path d="M382,238 L440,254" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
-<path d="M492,258 L548,262" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
-<path d="M596,258 C600,300 200,308 96,276" fill="none" stroke="#8CA3AF" stroke-width="2" stroke-dasharray="4 5" marker-end="url(#aS)"/>
+const SVG_MW = `<svg viewBox="0 0 760 370" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>洛特洪峰與土撥鼠小徑動線</title><desc>先搭纜車直上洛特洪峰山頂，再回到 Blauherd 走史特利湖與土撥鼠小徑，一路下坡經四座湖回到 Sunnegga。</desc>
+${SVG_DEFS}<rect width="760" height="370" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">洛特洪峰 Rothorn　＋　土撥鼠小徑 Murmelweg</text>
+<text x="22" y="50" font-size="12" fill="#4E6B79">天氣好先衝山頂（雲霧沒有補救機會）→ 回程再拍史特利湖倒影</text>
+<path d="M30,300 C170,240 320,140 450,110 C560,124 640,212 730,300 Z" fill="#E6EFF4"/>
+<path d="M78,272 L146,224" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M198,206 L262,172" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M318,152 L384,124" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M440,140 C420,182 348,190 306,186" fill="none" stroke="#8CA3AF" stroke-width="2" stroke-dasharray="4 5" marker-end="url(#aS)"/>
+<path d="M292,202 L340,240" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M394,258 L456,274" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M510,280 L570,284" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M620,282 C630,330 210,340 100,304" fill="none" stroke="#8CA3AF" stroke-width="2" stroke-dasharray="4 5" marker-end="url(#aS)"/>
 <g font-weight="700" font-size="11.5">
-<rect x="16" y="234" width="60" height="26" rx="9" fill="#1B6494"/><text x="46" y="252" fill="#fff" text-anchor="middle" font-size="12">Zermatt</text>
-<rect x="140" y="176" width="52" height="26" rx="9" fill="#2E8FD4"/><text x="166" y="194" fill="#fff" text-anchor="middle" font-size="11.5">Sunnegga</text>
-<text x="166" y="216" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">2288m</text>
-<rect x="248" y="132" width="54" height="26" rx="9" fill="#2E8FD4"/><text x="275" y="150" fill="#fff" text-anchor="middle" font-size="11.5">Blauherd</text>
-<text x="275" y="172" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">2571m</text>
-<rect x="364" y="88" width="112" height="34" rx="10" fill="#F0873C"/>
-<text x="420" y="103" fill="#fff" text-anchor="middle" font-size="12.5">Rothorn 山頂</text>
-<text x="420" y="116" fill="#FFEBDA" text-anchor="middle" font-size="10" font-weight="400">3103m・停 30–45 分</text>
-<text x="420" y="76" fill="#B15A16" text-anchor="middle" font-size="10.5">① 天氣好先衝這裡</text>
-<circle cx="352" cy="230" r="15" fill="#35AFA9"/><text x="352" y="235" fill="#fff" text-anchor="middle" font-size="12">1</text>
-<text x="352" y="262" fill="#17323F" text-anchor="middle" font-size="12">Stellisee</text>
-<text x="352" y="276" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">拍馬特洪峰倒影</text>
-<circle cx="466" cy="256" r="13" fill="#7CC4C0"/><text x="466" y="261" fill="#fff" text-anchor="middle" font-size="11">2</text>
-<text x="466" y="286" fill="#4E6B79" text-anchor="middle" font-size="11" font-weight="400">Grindjisee</text>
-<circle cx="570" cy="262" r="13" fill="#7CC4C0"/><text x="570" y="267" fill="#fff" text-anchor="middle" font-size="11">3</text>
-<text x="570" y="292" fill="#4E6B79" text-anchor="middle" font-size="11" font-weight="400">Grünsee・Moosjisee</text>
-<circle cx="184" cy="244" r="13" fill="#35AFA9"/><text x="184" y="249" fill="#fff" text-anchor="middle" font-size="11">4</text>
-<text x="184" y="272" fill="#4E6B79" text-anchor="middle" font-size="11" font-weight="400">Leisee・沃利公園</text>
+<rect x="16" y="262" width="66" height="30" rx="9" fill="#1B6494"/>
+<text x="49" y="276" fill="#fff" text-anchor="middle" font-size="11.5">策馬特</text>
+<text x="49" y="288" fill="#B9D6E8" text-anchor="middle" font-size="9">Zermatt</text>
+<rect x="146" y="192" width="58" height="30" rx="9" fill="#2E8FD4"/>
+<text x="175" y="206" fill="#fff" text-anchor="middle" font-size="11">Sunnegga</text>
+<text x="175" y="218" fill="#D6EAF8" text-anchor="middle" font-size="9">2288m</text>
+<rect x="262" y="140" width="58" height="30" rx="9" fill="#2E8FD4"/>
+<text x="291" y="154" fill="#fff" text-anchor="middle" font-size="11">Blauherd</text>
+<text x="291" y="166" fill="#D6EAF8" text-anchor="middle" font-size="9">2571m</text>
+<rect x="384" y="92" width="126" height="38" rx="10" fill="#F0873C"/>
+<text x="447" y="108" fill="#fff" text-anchor="middle" font-size="12.5">洛特洪峰 Rothorn</text>
+<text x="447" y="122" fill="#FFEBDA" text-anchor="middle" font-size="9.5" font-weight="400">3103m・停 30–45 分</text>
+<text x="447" y="78" fill="#B15A16" text-anchor="middle" font-size="10.5">① 天氣好先衝這裡</text>
+<circle cx="362" cy="248" r="15" fill="#35AFA9"/><text x="362" y="253" fill="#fff" text-anchor="middle" font-size="12">1</text>
+<text x="362" y="282" fill="#17323F" text-anchor="middle" font-size="12">史特利湖 Stellisee</text>
+<text x="362" y="296" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">拍馬特洪峰倒影</text>
+<circle cx="480" cy="276" r="13" fill="#7CC4C0"/><text x="480" y="281" fill="#fff" text-anchor="middle" font-size="11">2</text>
+<text x="480" y="306" fill="#4E6B79" text-anchor="middle" font-size="10.5" font-weight="400">Grindjisee</text>
+<circle cx="586" cy="284" r="13" fill="#7CC4C0"/><text x="586" y="289" fill="#fff" text-anchor="middle" font-size="11">3</text>
+<text x="586" y="314" fill="#4E6B79" text-anchor="middle" font-size="10.5" font-weight="400">Grünsee・Moosjisee</text>
+<circle cx="186" cy="268" r="13" fill="#35AFA9"/><text x="186" y="273" fill="#fff" text-anchor="middle" font-size="11">4</text>
+<text x="186" y="298" fill="#4E6B79" text-anchor="middle" font-size="10.5" font-weight="400">Leisee・沃利公園</text>
 </g>
-<text x="430" y="212" font-size="10.5" fill="#14595A" font-weight="700" text-anchor="middle">土撥鼠小徑 3.8km・幾乎全程下坡</text>
-<text x="430" y="226" font-size="10" fill="#8CA3AF" text-anchor="middle">官方 70 分鐘・走走拍拍實際約 2.5 小時</text>
-<rect x="16" y="286" width="176" height="34" rx="10" fill="#FFF4EA" stroke="#FBDCC0"/>
-<text x="28" y="300" font-size="10.5" font-weight="700" fill="#B15A16">末班纜車約 18:00</text>
-<text x="28" y="314" font-size="10" fill="#8CA3AF">預計 16:45 回到 Sunnegga</text>
-<text x="530" y="316" font-size="10.5" fill="#B15A16" font-weight="700">沿路無遮蔽，晴天請做好防曬</text>
+<text x="452" y="222" font-size="10.5" fill="#14595A" font-weight="700" text-anchor="middle">土撥鼠小徑 Murmelweg　3.8km・幾乎全程下坡</text>
+<text x="452" y="236" font-size="10" fill="#8CA3AF" text-anchor="middle">官方 70 分鐘・走走拍拍實際約 2.5 小時</text>
+<rect x="16" y="318" width="188" height="38" rx="10" fill="#FFF4EA" stroke="#FBDCC0"/>
+<text x="30" y="334" font-size="10.5" font-weight="700" fill="#B15A16">末班纜車約 18:00</text>
+<text x="30" y="349" font-size="10" fill="#8CA3AF">預計 16:45 回到 Sunnegga</text>
+<text x="734" y="346" font-size="10.5" fill="#B15A16" font-weight="700" text-anchor="end">沿路無遮蔽，晴天請做好防曬</text>
 </svg>`;
 
 /* ---------- 8/27 萊茵瀑布 ---------- */
-const SVG_RF = `<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>萊茵瀑布南北岸動線</title><desc>上午先走南岸 Schloss Laufen 三個觀景台，搭火車轉到北岸，下午在 Neuhausen 側拍瀑布全景並搭遊船。</desc>
-${SVG_DEFS}<rect width="720" height="400" fill="#F7FBFD"/>
-<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">萊茵瀑布　南北岸動線</text>
+const SVG_RF = `<svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>萊茵瀑布南北岸動線</title><desc>上午先走南岸勞芬堡三個觀景台，搭火車轉到北岸，下午在諾伊豪森側拍瀑布全景並搭遊船。</desc>
+${SVG_DEFS}<rect width="760" height="440" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">萊茵瀑布 Rheinfall　南北岸動線</text>
 <text x="22" y="50" font-size="12" fill="#4E6B79">上午南岸體驗近距離水勢　→　下午北岸拍全景（兩岸皆順光）</text>
-<rect x="14" y="62" width="692" height="278" rx="14" fill="#EAF4EC"/>
-<path d="M290,62 C312,124 280,172 300,222 C320,274 288,312 308,340 L420,340 C400,312 432,274 412,222 C392,172 424,124 402,62 Z" fill="#9FD3EE"/>
+<rect x="14" y="66" width="732" height="300" rx="14" fill="#EAF4EC"/>
+<path d="M306,66 C328,132 296,184 316,238 C336,294 304,336 324,366 L442,366 C422,336 454,294 434,238 C414,184 446,132 424,66 Z" fill="#9FD3EE"/>
 <g stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".85">
-<path d="M314,196 L310,224"/><path d="M334,190 L330,226"/><path d="M354,194 L350,228"/><path d="M374,189 L370,225"/><path d="M394,195 L390,223"/></g>
-<rect x="300" y="182" width="112" height="7" rx="3.5" fill="#fff" opacity=".92"/>
-<text x="356" y="250" font-size="11.5" font-weight="700" fill="#2A6B8F" text-anchor="middle">萊茵瀑布</text>
-<rect x="24" y="76" width="180" height="20" rx="10" fill="#2E8FD4" opacity=".14"/>
-<text x="34" y="90" font-size="11" font-weight="700" fill="#1B6494">② 下午　北岸　1–1.5 小時</text>
-<rect x="512" y="76" width="184" height="20" rx="10" fill="#C4653F" opacity=".16"/>
-<text x="686" y="90" font-size="11" font-weight="700" fill="#A34F2C" text-anchor="end">① 上午–中午　南岸　1–1.5 小時</text>
-<path d="M636,136 L594,178 L570,232 L590,286" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
-<path d="M608,296 C660,296 660,206 646,152" fill="none" stroke="#8CA3AF" stroke-width="1.8" stroke-dasharray="3 5"/>
-<text x="678" y="232" font-size="10" fill="#8CA3AF" text-anchor="middle">下方閘門</text>
-<text x="678" y="245" font-size="10" fill="#8CA3AF" text-anchor="middle">出去回車站</text>
+<path d="M330,206 L326,236"/><path d="M350,200 L346,238"/><path d="M370,204 L366,240"/><path d="M390,199 L386,237"/><path d="M410,205 L406,235"/></g>
+<rect x="316" y="192" width="118" height="7" rx="3.5" fill="#fff" opacity=".92"/>
+<text x="374" y="266" font-size="11.5" font-weight="700" fill="#2A6B8F" text-anchor="middle">萊茵瀑布</text>
+<rect x="24" y="80" width="196" height="22" rx="11" fill="#2E8FD4" opacity=".14"/>
+<text x="34" y="96" font-size="11" font-weight="700" fill="#1B6494">② 下午　北岸　1–1.5 小時</text>
+<rect x="520" y="80" width="216" height="22" rx="11" fill="#C4653F" opacity=".16"/>
+<text x="726" y="96" font-size="11" font-weight="700" fill="#A34F2C" text-anchor="end">① 上午–中午　南岸　1–1.5 小時</text>
+<path d="M652,150 L606,192 L582,250 L602,306" fill="none" stroke="#C4653F" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M620,316 C676,316 676,222 662,166" fill="none" stroke="#8CA3AF" stroke-width="1.8" stroke-dasharray="3 5"/>
+<text x="700" y="248" font-size="10" fill="#8CA3AF" text-anchor="middle">下方閘門</text>
+<text x="700" y="261" font-size="10" fill="#8CA3AF" text-anchor="middle">出去回車站</text>
 <g font-size="12" fill="#17323F">
-<circle cx="644" cy="134" r="14" fill="#6B7C86"/><text x="644" y="139" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text>
-<text x="624" y="122" text-anchor="end" font-weight="700">Schloss Laufen 站</text>
-<circle cx="592" cy="178" r="14" fill="#C4653F"/><text x="592" y="183" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text>
-<text x="572" y="174" text-anchor="end" font-weight="700">Belvedere</text>
-<text x="572" y="189" text-anchor="end" font-size="10" fill="#8CA3AF">視野最寬・看得到全貌</text>
-<circle cx="568" cy="232" r="14" fill="#C4653F"/><text x="568" y="237" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">3</text>
-<text x="548" y="228" text-anchor="end" font-weight="700">Känzeli</text>
-<text x="548" y="243" text-anchor="end" font-size="10" fill="#8CA3AF">最近水面・會噴濕</text>
-<circle cx="592" cy="286" r="14" fill="#C4653F"/><text x="592" y="291" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">4</text>
-<text x="572" y="282" text-anchor="end" font-weight="700">Fischetz</text>
-<text x="572" y="297" text-anchor="end" font-size="10" fill="#8CA3AF">洞穴通道・要低頭</text>
+<circle cx="660" cy="148" r="14" fill="#6B7C86"/><text x="660" y="153" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="640" y="134" text-anchor="end" font-weight="700">勞芬堡站</text>
+<text x="640" y="147" text-anchor="end" font-size="10" fill="#8CA3AF">Schloss Laufen</text>
+<circle cx="604" cy="192" r="14" fill="#C4653F"/><text x="604" y="197" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<text x="584" y="186" text-anchor="end" font-weight="700">貝爾維德觀景台</text>
+<text x="584" y="199" text-anchor="end" font-size="10" fill="#8CA3AF">Belvedere・視野最寬</text>
+<circle cx="580" cy="250" r="14" fill="#C4653F"/><text x="580" y="255" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<text x="560" y="244" text-anchor="end" font-weight="700">坎策利觀景台</text>
+<text x="560" y="257" text-anchor="end" font-size="10" fill="#8CA3AF">Känzeli・最近水面會噴濕</text>
+<circle cx="604" cy="306" r="14" fill="#C4653F"/><text x="604" y="311" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<text x="584" y="300" text-anchor="end" font-weight="700">費舍茲觀景台</text>
+<text x="584" y="313" text-anchor="end" font-size="10" fill="#8CA3AF">Fischetz・洞穴通道要低頭</text>
 </g>
-<path d="M628,326 C520,348 250,348 168,326" fill="none" stroke="#8CA3AF" stroke-width="2.4" stroke-dasharray="8 6" marker-end="url(#aS)"/>
-<rect x="292" y="316" width="140" height="32" rx="9" fill="#6B7C86"/>
-<text x="362" y="330" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">🚆 火車轉移</text>
-<text x="362" y="343" font-size="10" fill="#DCE5EA" text-anchor="middle">2–4 分鐘・每 30 分鐘一班</text>
-<path d="M78,150 L152,192 L188,246" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
-<path d="M196,258 L232,222" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M640,348 C528,370 258,370 176,348" fill="none" stroke="#8CA3AF" stroke-width="2.4" stroke-dasharray="8 6" marker-end="url(#aS)"/>
+<rect x="304" y="338" width="148" height="34" rx="9" fill="#6B7C86"/>
+<text x="378" y="353" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">🚆 火車轉移</text>
+<text x="378" y="366" font-size="10" fill="#DCE5EA" text-anchor="middle">2–4 分鐘・每 30 分鐘一班</text>
+<path d="M86,164 L160,206 L196,262" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M204,274 L240,238" fill="none" stroke="#2E8FD4" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#aB)"/>
 <g font-size="12" fill="#17323F">
-<circle cx="72" cy="136" r="14" fill="#6B7C86"/><text x="72" y="141" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">5</text>
-<text x="92" y="132" font-weight="700">Neuhausen 站</text>
-<text x="92" y="147" font-size="10" fill="#8CA3AF">電梯下到河濱步道</text>
-<circle cx="160" cy="200" r="14" fill="#2E8FD4"/><text x="160" y="205" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">6</text>
-<text x="180" y="196" font-weight="700">高處觀景平台</text>
-<text x="180" y="211" font-size="10" fill="#8CA3AF">拍瀑布全景最佳位置</text>
-<circle cx="190" cy="258" r="14" fill="#2E8FD4"/><text x="190" y="263" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">7</text>
-<text x="210" y="254" font-weight="700">Schlössli Wörth 碼頭</text>
-<text x="210" y="269" font-size="10" fill="#B15A16" font-weight="700">🚢 Rock Experience 14:30</text>
+<circle cx="80" cy="150" r="14" fill="#6B7C86"/><text x="80" y="155" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+<text x="100" y="144" font-weight="700">諾伊豪森站</text>
+<text x="100" y="157" font-size="10" fill="#8CA3AF">Neuhausen・電梯下到河濱步道</text>
+<circle cx="168" cy="214" r="14" fill="#2E8FD4"/><text x="168" y="219" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+<text x="188" y="208" font-weight="700">高處觀景平台</text>
+<text x="188" y="221" font-size="10" fill="#8CA3AF">拍瀑布全景最佳位置</text>
+<circle cx="198" cy="274" r="14" fill="#2E8FD4"/><text x="198" y="279" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+<text x="218" y="268" font-weight="700">沃爾特小城堡碼頭</text>
+<text x="218" y="281" font-size="10" fill="#B15A16" font-weight="700">Schlössli Wörth・遊船 14:30</text>
 </g>
-<text x="60" y="300" font-size="10" fill="#8CA3AF">回程搭電梯上車站（坡陡，別走）</text>
+<text x="66" y="316" font-size="10" fill="#8CA3AF">回程搭電梯上車站（坡陡，別走）</text>
 <g font-size="11" fill="#4E6B79">
-<circle cx="30" cy="374" r="6" fill="#6B7C86"/><text x="44" y="378">車站</text>
-<circle cx="104" cy="374" r="6" fill="#C4653F"/><text x="118" y="378">南岸觀景台（先去）</text>
-<circle cx="250" cy="374" r="6" fill="#2E8FD4"/><text x="264" y="378">北岸觀景・碼頭（後去）</text>
-<text x="430" y="378" fill="#A34F2C" font-weight="700">⚠ 南北岸不能走橋，一定要搭火車轉移</text>
+<circle cx="30" cy="398" r="6" fill="#6B7C86"/><text x="44" y="402">車站</text>
+<circle cx="104" cy="398" r="6" fill="#C4653F"/><text x="118" y="402">南岸觀景台（先去）</text>
+<circle cx="250" cy="398" r="6" fill="#2E8FD4"/><text x="264" y="402">北岸觀景・碼頭（後去）</text>
+<text x="30" y="426" fill="#A34F2C" font-weight="700">⚠ 南北岸不能走橋，一定要搭火車轉移</text>
 </g></svg>`;
 
-const SVG_JF = `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img">
-<title>少女峰一日動線</title>
-<rect width="720" height="300" fill="#F7FBFD"/>
-<defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#2E8FD4"/></marker>
-<marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#35AFA9"/></marker></defs>
-<text x="24" y="34" font-size="16" font-weight="700" fill="#17323F" font-family="sans-serif">少女峰　一日動線</text>
-<text x="24" y="54" font-size="12" fill="#4E6B79" font-family="sans-serif">上山搭纜車與齒軌 · 下山走 Eiger Walk 健行，不走回頭路</text>
-<path d="M120,196 L120,120 L280,120" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round"/>
-<path d="M300,120 L430,120" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#a1)"/>
-<path d="M470,132 L470,196" fill="none" stroke="#8CA3AF" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
-<path d="M452,208 L330,208" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#a2)"/>
-<path d="M290,220 L180,246" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#a2)"/>
+const SVG_JF = `<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>少女峰一日動線</title><desc>上山搭艾格快線與少女峰鐵路，下山改走艾格步道健行到小夏戴克，再搭溫根阿爾卑斯鐵路回格林德瓦，晚上拉車去伯恩。</desc>
+${SVG_DEFS}<rect width="760" height="340" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">少女峰 Jungfraujoch　一日動線</text>
+<text x="22" y="50" font-size="12" fill="#4E6B79">上山搭纜車與齒軌　·　下山走 Eiger Walk 艾格步道，不走回頭路</text>
+<path d="M124,214 L124,132 L292,132" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5"/>
+<path d="M312,132 L452,132" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M496,148 L496,214" fill="none" stroke="#8CA3AF" stroke-width="2" stroke-dasharray="4 5"/>
+<path d="M476,226 L350,226" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M306,240 L192,268" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
 <g font-family="sans-serif">
-<rect x="60" y="182" width="124" height="30" rx="9" fill="#1B6494"/><text x="122" y="202" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Grindelwald Terminal</text>
-<text x="122" y="228" font-size="10.5" fill="#B15A16" text-anchor="middle" font-weight="700">07:45 抵達 · 08:17 發車</text>
-<rect x="228" y="106" width="118" height="28" rx="9" fill="#E9F4FC" stroke="#2E8FD4"/><text x="287" y="125" font-size="12" font-weight="700" fill="#1B6494" text-anchor="middle">Eigergletscher</text>
-<text x="180" y="100" font-size="10.5" fill="#2E8FD4" font-weight="700">Eiger Express</text>
-<rect x="430" y="104" width="112" height="32" rx="10" fill="#2E8FD4"/><text x="486" y="118" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">Jungfraujoch</text><text x="486" y="131" font-size="10" fill="#D6EAF8" text-anchor="middle">3,454m · 停 3.5 hr（09:41–13:00）</text>
-<text x="362" y="110" font-size="10.5" fill="#2E8FD4" font-weight="700">少女峰鐵路</text>
-<circle cx="392" cy="120" r="4.5" fill="#F0873C"/><text x="392" y="146" font-size="10" fill="#B15A16" text-anchor="middle" font-weight="700">冰海站 Eismeer</text><text x="392" y="158" font-size="9.5" fill="#8CA3AF" text-anchor="middle">去程停 5–10 分</text>
-<rect x="412" y="194" width="116" height="28" rx="9" fill="#E7F7F5" stroke="#35AFA9"/><text x="470" y="213" font-size="12" font-weight="700" fill="#14595A" text-anchor="middle">Eigergletscher</text>
-<rect x="216" y="194" width="118" height="28" rx="9" fill="#35AFA9"/><text x="275" y="213" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Kleine Scheidegg</text>
-<text x="373" y="196" font-size="10.5" fill="#14595A" text-anchor="middle" font-weight="700">Eiger Walk 健行 2.1km</text>
-<text x="373" y="240" font-size="10" fill="#8CA3AF" text-anchor="middle">13:55–15:45 · 沿途無補給</text>
-<rect x="88" y="234" width="104" height="28" rx="9" fill="#1B6494"/><text x="140" y="253" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Grindelwald</text>
-<text x="238" y="266" font-size="10.5" fill="#14595A" font-weight="700">Wengernalp Railway</text>
-<text x="140" y="278" font-size="10" fill="#B15A16" text-anchor="middle" font-weight="700">16:40 抵達 · 17:20 出發 Bern</text>
+<rect x="56" y="198" width="136" height="34" rx="10" fill="#1B6494"/>
+<text x="124" y="213" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">格林德瓦轉運站</text>
+<text x="124" y="226" font-size="9.5" fill="#B9D6E8" text-anchor="middle">Grindelwald Terminal</text>
+<text x="124" y="250" font-size="10.5" fill="#B15A16" text-anchor="middle" font-weight="700">07:45 抵達・08:17 發車</text>
+<rect x="238" y="114" width="120" height="34" rx="10" fill="#E9F4FC" stroke="#2E8FD4"/>
+<text x="298" y="129" font-size="11.5" font-weight="700" fill="#1B6494" text-anchor="middle">艾格冰川站</text>
+<text x="298" y="142" font-size="9.5" fill="#5A7C84" text-anchor="middle">Eigergletscher</text>
+<text x="186" y="104" font-size="10.5" fill="#2E8FD4" font-weight="700">艾格快線 Eiger Express</text>
+<rect x="452" y="110" width="128" height="40" rx="11" fill="#2E8FD4"/>
+<text x="516" y="126" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">少女峰</text>
+<text x="516" y="139" font-size="9.5" fill="#D6EAF8" text-anchor="middle">Jungfraujoch 3,454m</text>
+<text x="516" y="94" font-size="10.5" fill="#B15A16" text-anchor="middle" font-weight="700">09:41 抵達・停 3.5 小時</text>
+<text x="382" y="118" font-size="10.5" fill="#2E8FD4" font-weight="700" text-anchor="middle">少女峰鐵路</text>
+<circle cx="410" cy="132" r="5" fill="#F0873C"/>
+<text x="410" y="162" font-size="10" fill="#B15A16" text-anchor="middle" font-weight="700">冰海站 Eismeer</text>
+<text x="410" y="174" font-size="9.5" fill="#8CA3AF" text-anchor="middle">去程停 5–10 分・免費</text>
+<rect x="436" y="208" width="120" height="34" rx="10" fill="#E7F7F5" stroke="#35AFA9"/>
+<text x="496" y="223" font-size="11.5" font-weight="700" fill="#14595A" text-anchor="middle">艾格冰川站</text>
+<text x="496" y="236" font-size="9.5" fill="#5A7C84" text-anchor="middle">Eigergletscher</text>
+<rect x="228" y="208" width="122" height="34" rx="10" fill="#35AFA9"/>
+<text x="289" y="223" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">小夏戴克</text>
+<text x="289" y="236" font-size="9.5" fill="#DCF3F1" text-anchor="middle">Kleine Scheidegg</text>
+<text x="392" y="208" font-size="10.5" fill="#14595A" text-anchor="middle" font-weight="700">Eiger Walk 艾格步道 2.1km</text>
+<text x="392" y="262" font-size="10" fill="#8CA3AF" text-anchor="middle">13:55–15:45・緩下坡・沿途無補給</text>
+<rect x="56" y="256" width="132" height="34" rx="10" fill="#1B6494"/>
+<text x="122" y="271" font-size="11.5" font-weight="700" fill="#fff" text-anchor="middle">格林德瓦</text>
+<text x="122" y="284" font-size="9.5" fill="#B9D6E8" text-anchor="middle">Grindelwald</text>
+<text x="216" y="290" font-size="10" fill="#14595A" font-weight="700">溫根阿爾卑斯鐵路 Wengernalp Railway</text>
+<text x="122" y="308" font-size="10.5" fill="#B15A16" text-anchor="middle" font-weight="700">16:40 抵達 → 17:20 出發 Bern 伯恩</text>
 </g>
-<g font-family="sans-serif" font-size="10.5"><rect x="556" y="182" width="140" height="76" rx="10" fill="#FFF4EA" stroke="#FBDCC0"/>
-<text x="568" y="200" font-weight="700" fill="#B15A16">座位方向</text>
-<text x="568" y="218" fill="#B15A16">上山坐右側</text><text x="568" y="234" fill="#8CA3AF">看得到艾格峰岩壁</text>
-<text x="568" y="250" fill="#8CA3AF">轉車：B 線往格林德瓦</text></g>
-</svg>`;
+<g font-size="10.5" font-family="sans-serif">
+<rect x="592" y="196" width="146" height="80" rx="11" fill="#FFF4EA" stroke="#FBDCC0"/>
+<text x="606" y="216" font-weight="700" fill="#B15A16">座位與轉車</text>
+<text x="606" y="236" fill="#B15A16">上山坐右側</text>
+<text x="606" y="252" fill="#8CA3AF">看得到艾格峰北壁</text>
+<text x="606" y="268" fill="#8CA3AF">轉車：B 線往格林德瓦</text>
+</g></svg>`;
 
-const SVG_ZM = `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img">
-<title>策馬特雙山動線</title>
-<rect width="720" height="320" fill="#F7FBFD"/>
-<defs><marker id="z1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#2E8FD4"/></marker>
-<marker id="z2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#35AFA9"/></marker></defs>
-<text x="24" y="34" font-size="16" font-weight="700" fill="#17323F" font-family="sans-serif">策馬特　戈爾內格拉特峰 ＋ 冰川天堂</text>
-<text x="24" y="54" font-size="12" fill="#4E6B79" font-family="sans-serif">上午齒軌上 Gornergrat（中午前拍 Riffelsee）· 下午纜車上冰川天堂</text>
-<line x1="360" y1="72" x2="360" y2="288" stroke="#DCEAF3" stroke-width="1.5" stroke-dasharray="4 5"/>
-<text x="186" y="84" font-size="11" font-weight="700" fill="#2E8FD4" font-family="sans-serif" text-anchor="middle">上午　齒軌列車</text>
-<text x="540" y="84" font-size="11" font-weight="700" fill="#35AFA9" font-family="sans-serif" text-anchor="middle">下午　纜車</text>
-<g font-family="sans-serif">
-<rect x="296" y="262" width="128" height="32" rx="10" fill="#1B6494"/><text x="360" y="283" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Zermatt 策馬特</text>
-<path d="M300,262 L232,224" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#z1)"/>
-<path d="M214,206 L184,172" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#z1)"/>
-<path d="M166,150 L136,118" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#z1)"/>
-<rect x="188" y="212" width="110" height="26" rx="8" fill="#E9F4FC" stroke="#2E8FD4"/><text x="243" y="229" font-size="11.5" font-weight="700" fill="#1B6494" text-anchor="middle">Riffelberg 2582m</text>
-<text x="243" y="250" font-size="9.5" fill="#8CA3AF" text-anchor="middle">有餐廳</text>
-<rect x="120" y="158" width="112" height="26" rx="8" fill="#E9F4FC" stroke="#2E8FD4"/><text x="176" y="175" font-size="11.5" font-weight="700" fill="#1B6494" text-anchor="middle">Rotenboden 2815m</text>
-<text x="176" y="196" font-size="10" fill="#B15A16" text-anchor="middle" font-weight="700">Riffelsee 倒影 · 11:30 前</text>
-<rect x="56" y="86" width="120" height="32" rx="10" fill="#2E8FD4"/><text x="116" y="100" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Gornergrat</text><text x="116" y="112" font-size="9.5" fill="#D6EAF8" text-anchor="middle">3,100m · 停 1–1.5 hr</text>
-<text x="252" y="196" font-size="10" fill="#2E8FD4" font-weight="700" text-anchor="middle">33 分 · 去右回左</text>
-<path d="M424,262 L492,224" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#z2)"/>
-<path d="M512,206 L544,172" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#z2)"/>
-<path d="M566,150 L596,118" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round" marker-end="url(#z2)"/>
-<rect x="440" y="212" width="94" height="26" rx="8" fill="#E7F7F5" stroke="#35AFA9"/><text x="487" y="229" font-size="11.5" font-weight="700" fill="#14595A" text-anchor="middle">Furi 1867m</text>
-<rect x="520" y="158" width="128" height="26" rx="8" fill="#E7F7F5" stroke="#35AFA9"/><text x="584" y="175" font-size="11.5" font-weight="700" fill="#14595A" text-anchor="middle">Trockener Steg</text>
-<rect x="548" y="86" width="136" height="32" rx="10" fill="#35AFA9"/><text x="616" y="100" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">冰川天堂 Glacier Paradise</text><text x="616" y="112" font-size="9.5" fill="#DCF3F1" text-anchor="middle">3,883m · 停 2.5–3.5 hr</text>
-<path d="M300,224 C340,196 400,196 438,222" fill="none" stroke="#8CA3AF" stroke-width="1.8" stroke-dasharray="3 5"/>
-<text x="368" y="196" font-size="10" fill="#8CA3AF" text-anchor="middle" font-weight="700">v2：Riffelberg → Furi 纜車直接串接</text>
-<text x="360" y="308" font-size="10.5" fill="#8CA3AF" text-anchor="middle">v1：兩站轉場走路 20 分或免費接駁巴士 3 分</text>
-</g>
-<g font-family="sans-serif"><rect x="596" y="238" width="104" height="56" rx="10" fill="#FFF4EA" stroke="#FBDCC0"/>
-<text x="608" y="256" font-size="10.5" font-weight="700" fill="#B15A16">末班纜車</text>
-<text x="608" y="273" font-size="14" font-weight="700" fill="#B15A16">16:30</text>
-<text x="608" y="287" font-size="9.5" fill="#8CA3AF">15:30 開始下山</text></g>
+const SVG_ZM = `<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>策馬特雙山動線</title><desc>上午搭齒軌列車上戈爾內格拉特峰，中午前在 Rotenboden 拍利菲爾湖倒影，下午轉搭纜車上馬特洪峰冰川天堂。</desc>
+${SVG_DEFS}<rect width="760" height="360" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">策馬特 Zermatt　戈爾內格拉特峰 ＋ 冰川天堂</text>
+<text x="22" y="50" font-size="12" fill="#4E6B79">上午齒軌上山（中午前拍利菲爾湖）　·　下午纜車上冰川天堂</text>
+<line x1="380" y1="78" x2="380" y2="312" stroke="#DCEAF3" stroke-width="1.5" stroke-dasharray="4 5"/>
+<text x="196" y="92" font-size="11" font-weight="700" fill="#2E8FD4" text-anchor="middle">上午　齒軌列車</text>
+<text x="566" y="92" font-size="11" font-weight="700" fill="#35AFA9" text-anchor="middle">下午　纜車</text>
+<rect x="312" y="288" width="136" height="34" rx="10" fill="#1B6494"/>
+<text x="380" y="303" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">策馬特</text>
+<text x="380" y="316" font-size="9.5" fill="#B9D6E8" text-anchor="middle">Zermatt 1,605m</text>
+<path d="M316,290 L246,250" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M226,228 L196,190" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<path d="M176,166 L146,128" fill="none" stroke="#2E8FD4" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aB)"/>
+<rect x="198" y="236" width="116" height="30" rx="9" fill="#E9F4FC" stroke="#2E8FD4"/>
+<text x="256" y="250" font-size="11" font-weight="700" fill="#1B6494" text-anchor="middle">Riffelberg</text>
+<text x="256" y="262" font-size="9" fill="#5A7C84" text-anchor="middle">2582m・有餐廳</text>
+<rect x="128" y="176" width="118" height="30" rx="9" fill="#E9F4FC" stroke="#2E8FD4"/>
+<text x="187" y="190" font-size="11" font-weight="700" fill="#1B6494" text-anchor="middle">Rotenboden</text>
+<text x="187" y="202" font-size="9" fill="#5A7C84" text-anchor="middle">2815m・無餐廳</text>
+<text x="187" y="222" font-size="10" fill="#B15A16" text-anchor="middle" font-weight="700">利菲爾湖 Riffelsee 倒影・11:30 前</text>
+<rect x="52" y="86" width="140" height="40" rx="11" fill="#2E8FD4"/>
+<text x="122" y="102" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">戈爾內格拉特峰</text>
+<text x="122" y="116" font-size="9.5" fill="#D6EAF8" text-anchor="middle">Gornergrat 3,100m・停 1–1.5 hr</text>
+<text x="290" y="212" font-size="10" fill="#2E8FD4" font-weight="700" text-anchor="middle">33 分・去右回左</text>
+<path d="M448,290 L516,250" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M538,228 L570,190" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M594,166 L624,128" fill="none" stroke="#35AFA9" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<rect x="466" y="236" width="98" height="30" rx="9" fill="#E7F7F5" stroke="#35AFA9"/>
+<text x="515" y="255" font-size="11" font-weight="700" fill="#14595A" text-anchor="middle">Furi 1,867m</text>
+<rect x="544" y="176" width="134" height="30" rx="9" fill="#E7F7F5" stroke="#35AFA9"/>
+<text x="611" y="195" font-size="11" font-weight="700" fill="#14595A" text-anchor="middle">Trockener Steg</text>
+<rect x="558" y="86" width="164" height="40" rx="11" fill="#35AFA9"/>
+<text x="640" y="102" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">馬特洪峰冰川天堂</text>
+<text x="640" y="116" font-size="9.5" fill="#DCF3F1" text-anchor="middle">Glacier Paradise 3,883m</text>
+<path d="M316,250 C356,220 424,220 462,246" fill="none" stroke="#8CA3AF" stroke-width="1.8" stroke-dasharray="3 5"/>
+<text x="388" y="218" font-size="10" fill="#8CA3AF" text-anchor="middle" font-weight="700">v2：Riffelberg → Furi 纜車直接串接</text>
+<text x="380" y="344" font-size="10.5" fill="#8CA3AF" text-anchor="middle">v1：兩站轉場走路 20 分或免費接駁巴士 3 分</text>
+<rect x="626" y="272" width="112" height="58" rx="10" fill="#FFF4EA" stroke="#FBDCC0"/>
+<text x="640" y="291" font-size="10.5" font-weight="700" fill="#B15A16">末班纜車</text>
+<text x="640" y="310" font-size="15" font-weight="700" fill="#B15A16">16:30</text>
+<text x="640" y="324" font-size="9.5" fill="#8CA3AF">15:30 開始下山</text>
 </svg>`;
 
 /* ==========================================================================
@@ -1118,8 +1175,10 @@ const DAYS = [
     { l:"晚上", b:"Kirchenfeldbrücke 過橋 → Bundeshaus 聯邦國會大廈（夜景推薦）→ 返回 Bern Bahnhof<br><small>美食：Berner Platte 伯恩拼盤（燻肉、香腸、酸菜、馬鈴薯）</small>" }
   ],
   maps:[
-    { label:"伯恩老城環線（車站出發・不走回頭路）",
-      url:"https://www.google.com/maps/dir/?api=1&origin=Bahnhof+Bern&destination=Bahnhof+Bern&waypoints=Zytglogge,Bern%7CKramgasse,Bern%7CEinsteinhaus,Bern%7CBerner+M%C3%BCnster%7CNydeggbr%C3%BCcke,Bern%7CB%C3%A4renPark,Bern%7CRosengarten,Bern%7CKirchenfeldbr%C3%BCcke,Bern%7CBundeshaus,Bern&travelmode=walking" }
+    { label:"上午　飯店 → 老城主街 → Nydeggbrücke",
+      url:"https://www.google.com/maps/dir/?api=1&origin=Aarbergergasse+55,Bern&destination=Nydeggbr%C3%BCcke,Bern&waypoints=Zytglogge,Bern%7CKramgasse,Bern%7CEinsteinhaus,Bern%7CBerner+M%C3%BCnster&travelmode=walking" },
+    { label:"下午　過橋 → 熊公園 → 玫瑰園 → 回飯店",
+      url:"https://www.google.com/maps/dir/?api=1&origin=Nydeggbr%C3%BCcke,Bern&destination=Aarbergergasse+55,Bern&waypoints=B%C3%A4renPark,Bern%7CRosengarten,Bern%7CKirchenfeldbr%C3%BCcke,Bern%7CBundeshaus,Bern&travelmode=walking" }
   ],
   gallery:[
     { type:"svg", svg:"BN",     cap:"伯恩老城步行動線", sub:"回程改走 Kirchenfeldbrücke" },
@@ -1262,7 +1321,7 @@ const DAYS = [
   ],
   maps:[
     { label:"蘇黎世市區步行路線（HB → 湖畔）",
-      url:"https://www.google.com/maps/dir/?api=1&origin=Z%C3%BCrich+HB&destination=B%C3%BCrkliplatz,Z%C3%BCrich&waypoints=Polyterrasse+ETH,Z%C3%BCrich%7CNiederdorfstrasse,Z%C3%BCrich%7CGrossm%C3%BCnster,Z%C3%BCrich%7CM%C3%BCnsterbr%C3%BCcke,Z%C3%BCrich%7CFraum%C3%BCnster,Z%C3%BCrich%7CLindenhof,Z%C3%BCrich&travelmode=walking" }
+      url:"https://www.google.com/maps/dir/?api=1&origin=Z%C3%BCrich+HB&destination=B%C3%BCrkliplatz&waypoints=Polyterrasse%7CGrossm%C3%BCnster%7CM%C3%BCnsterbr%C3%BCcke%7CFraum%C3%BCnster%7CLindenhof&travelmode=walking" }
   ],
   gallery:[
     { type:"svg", svg:"ZH",      cap:"蘇黎世市區步行動線", sub:"只過一次橋，走到湖邊收尾" },
