@@ -615,72 +615,83 @@ ${SVG_DEFS}<rect width="760" height="350" fill="#F7FBFD"/>
 </svg>`;
 
 /* ---------- 8/23 伯恩老城 ---------- */
-const SVG_BN = `<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
-<title>伯恩老城步行動線</title><desc>上午沿老城主街東行至大教堂，過 Nydeggbrücke 到熊公園與玫瑰園，回程改走 Kirchenfeldbrücke 經聯邦國會大廈回飯店。</desc>
-${SVG_DEFS}<rect width="760" height="470" fill="#F7FBFD"/>
-<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">伯恩　老城步行動線</text>
-<text x="22" y="50" font-size="12" fill="#4E6B79">全程步行　·　回程改走 Kirchenfeldbrücke 尼德格橋以南，不走回頭路</text>
+const SVG_BN = `<svg viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>伯恩老城步行動線</title><desc>伯恩老城位在阿勒河繞出的半島上。上午沿主街東行到大教堂，過尼德格橋到東側的熊公園與玫瑰園，再沿河外側往南繞到基希菲德橋過橋回半島，經聯邦國會大廈走回飯店。</desc>
+${SVG_DEFS}<rect width="760" height="500" fill="#F7FBFD"/>
+<text x="22" y="30" font-size="16" font-weight="700" fill="#17323F">伯恩 Bern　老城步行動線</text>
+<text x="22" y="50" font-size="12" fill="#4E6B79">老城在阿勒河繞出的半島上　·　東邊過橋出去、南邊過橋回來，不走回頭路</text>
 
-<rect x="26" y="128" width="708" height="62" rx="31" fill="#E8DCC4"/>
-<text x="30" y="78" font-size="11" font-weight="700" fill="#96814F">北岸　Altstadt 老城（中世紀拱廊）</text>
-<path d="M0,206 L760,206 L760,244 C640,244 622,330 486,330 L306,330 C182,330 164,244 0,244 Z" fill="#A8D8F0" opacity=".7"/>
-<text x="694" y="232" font-size="11" font-weight="700" fill="#2A6B8F">Aare 阿勒河</text>
-<rect x="272" y="266" width="308" height="98" rx="44" fill="#D9E9D4"/>
-<text x="286" y="392" font-size="11" font-weight="700" fill="#6C8B62">河對岸　熊公園・玫瑰園</text>
-<rect x="592" y="186" width="22" height="86" rx="7" fill="#D0BC94"/>
-<rect x="286" y="186" width="22" height="86" rx="7" fill="#D0BC94"/>
+<path d="M596,96 h150 v368 h-16 v-40 h-434 v40 h-96 z" fill="#D9E9D4" opacity=".9"/>
+<rect x="300" y="424" width="446" height="52" rx="16" fill="#D9E9D4"/>
+<rect x="596" y="96" width="150" height="352" rx="16" fill="#D9E9D4"/>
+<path d="M0,128 H500 C572,128 588,176 588,268 C588,360 572,408 500,408 H0" fill="none" stroke="#A8D8F0" stroke-width="46"/>
+<path d="M16,158 H470 C512,158 530,196 530,268 C530,340 512,378 470,378 H16 Z" fill="#E8DCC4"/>
+<text x="30" y="118" font-size="11.5" font-weight="700" fill="#2A6B8F">Aare 阿勒河</text>
+<text x="30" y="182" font-size="11" font-weight="700" fill="#96814F">Altstadt 老城（半島・中世紀拱廊）</text>
+<text x="610" y="118" font-size="11" font-weight="700" fill="#6C8B62">河對岸　熊公園・玫瑰園</text>
+<text x="316" y="456" font-size="11" font-weight="700" fill="#6C8B62">Kirchenfeld 區</text>
+<rect x="546" y="212" width="22" height="46" rx="7" fill="#D0BC94"/>
+<rect x="452" y="386" width="46" height="22" rx="7" fill="#D0BC94"/>
 
-<path d="M110,159 L556,159" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
-<path d="M588,172 L604,214 L602,252 L588,284 L500,318 L406,330 L340,306 L298,258 L296,208 L288,182 L212,162 L128,158"
-      fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M104,234 L500,234" fill="none" stroke="#4A7C6F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aG)"/>
+<path d="M574,234 L616,234" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M652,220 L680,178" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M692,182 C712,300 706,412 512,412" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M470,382 L438,350" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
+<path d="M396,332 C280,320 150,282 106,250" fill="none" stroke="#C4653F" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#aO)"/>
 
 <g font-weight="700" font-size="11.5">
-<circle cx="96" cy="159" r="15" fill="#6B7C86"/><text x="96" y="164" fill="#fff" text-anchor="middle" font-size="12">1</text>
-<text x="96" y="110" fill="#17323F" text-anchor="middle">飯店</text>
-<text x="96" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Aarbergergasse 55</text>
+<circle cx="90" cy="234" r="15" fill="#6B7C86"/><text x="90" y="239" fill="#fff" text-anchor="middle" font-size="12">1</text>
+<text x="90" y="212" fill="#17323F" text-anchor="middle">飯店</text>
+<text x="90" y="200" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Aarbergergasse 55</text>
 
-<circle cx="192" cy="159" r="15" fill="#4A7C6F"/><text x="192" y="164" fill="#fff" text-anchor="middle" font-size="12">2</text>
-<text x="192" y="110" fill="#17323F" text-anchor="middle">時鐘塔</text>
-<text x="192" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Zytglogge</text>
-<text x="192" y="212" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="700">整點前 5 分鐘到</text>
+<circle cx="188" cy="234" r="15" fill="#4A7C6F"/><text x="188" y="239" fill="#fff" text-anchor="middle" font-size="12">2</text>
+<text x="188" y="212" fill="#17323F" text-anchor="middle">時鐘塔</text>
+<text x="188" y="200" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Zytglogge</text>
+<text x="188" y="268" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="700">整點前 5 分鐘到</text>
 
-<circle cx="288" cy="159" r="15" fill="#4A7C6F"/><text x="288" y="164" fill="#fff" text-anchor="middle" font-size="12">3</text>
-<text x="288" y="110" fill="#17323F" text-anchor="middle">老城拱廊街</text>
-<text x="288" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Kramgasse</text>
+<circle cx="272" cy="234" r="15" fill="#4A7C6F"/><text x="272" y="239" fill="#fff" text-anchor="middle" font-size="12">3</text>
+<text x="272" y="212" fill="#17323F" text-anchor="middle">老城拱廊街</text>
+<text x="272" y="200" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Kramgasse</text>
 
-<circle cx="392" cy="159" r="15" fill="#4A7C6F"/><text x="392" y="164" fill="#fff" text-anchor="middle" font-size="12">4</text>
-<text x="392" y="110" fill="#17323F" text-anchor="middle">愛因斯坦故居</text>
-<text x="392" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Einsteinhaus</text>
+<circle cx="356" cy="234" r="15" fill="#4A7C6F"/><text x="356" y="239" fill="#fff" text-anchor="middle" font-size="12">4</text>
+<text x="356" y="212" fill="#17323F" text-anchor="middle">愛因斯坦故居</text>
+<text x="356" y="200" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Einsteinhaus</text>
 
-<circle cx="492" cy="159" r="15" fill="#4A7C6F"/><text x="492" y="164" fill="#fff" text-anchor="middle" font-size="12">5</text>
-<text x="492" y="110" fill="#17323F" text-anchor="middle">伯恩大教堂</text>
-<text x="492" y="123" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Berner Münster</text>
+<circle cx="440" cy="234" r="15" fill="#4A7C6F"/><text x="440" y="239" fill="#fff" text-anchor="middle" font-size="12">5</text>
+<text x="440" y="212" fill="#17323F" text-anchor="middle">伯恩大教堂</text>
+<text x="440" y="200" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Berner Münster</text>
 
-<circle cx="572" cy="159" r="15" fill="#C4653F"/><text x="572" y="164" fill="#fff" text-anchor="middle" font-size="12">6</text>
-<text x="628" y="150" fill="#17323F">尼德格橋</text>
-<text x="628" y="164" fill="#8CA3AF" font-size="10" font-weight="400">Nydeggbrücke</text>
+<circle cx="557" cy="234" r="15" fill="#C4653F"/><text x="557" y="239" fill="#fff" text-anchor="middle" font-size="12">6</text>
+<text x="557" y="196" fill="#17323F" text-anchor="middle">尼德格橋</text>
+<text x="557" y="184" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Nydeggbrücke</text>
 
-<circle cx="588" cy="284" r="15" fill="#C4653F"/><text x="588" y="289" fill="#fff" text-anchor="middle" font-size="12">7</text>
-<text x="612" y="280" fill="#17323F">熊公園</text>
-<text x="612" y="294" fill="#8CA3AF" font-size="10" font-weight="400">BärenPark</text>
+<circle cx="634" cy="234" r="15" fill="#C4653F"/><text x="634" y="239" fill="#fff" text-anchor="middle" font-size="12">7</text>
+<text x="634" y="266" fill="#17323F" text-anchor="middle">熊公園</text>
+<text x="634" y="278" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">BärenPark</text>
+<text x="596" y="222" fill="#8CA3AF" font-size="9.5" font-weight="400">1 分</text>
 
-<circle cx="406" cy="330" r="15" fill="#C4653F"/><text x="406" y="335" fill="#fff" text-anchor="middle" font-size="12">8</text>
-<text x="406" y="360" fill="#17323F" text-anchor="middle">玫瑰園 Rosengarten</text>
-<text x="406" y="374" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">今日重頭戲・近傍晚光線最好</text>
+<circle cx="690" cy="164" r="15" fill="#C4653F"/><text x="690" y="169" fill="#fff" text-anchor="middle" font-size="12">8</text>
+<text x="690" y="140" fill="#17323F" text-anchor="middle">玫瑰園</text>
+<text x="690" y="128" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Rosengarten</text>
+<text x="690" y="206" fill="#B15A16" text-anchor="middle" font-size="10" font-weight="400">今日重頭戲・近傍晚光線最好</text>
+<text x="656" y="196" fill="#8CA3AF" font-size="9.5" font-weight="400">9 分上坡</text>
 
-<circle cx="297" cy="258" r="15" fill="#C4653F"/><text x="297" y="263" fill="#fff" text-anchor="middle" font-size="12">9</text>
-<text x="272" y="254" fill="#17323F" text-anchor="end">基希菲德橋</text>
-<text x="272" y="268" fill="#8CA3AF" text-anchor="end" font-size="10" font-weight="400">Kirchenfeldbrücke</text>
+<circle cx="497" cy="412" r="15" fill="#C4653F"/><text x="497" y="417" fill="#fff" text-anchor="middle" font-size="12">9</text>
+<text x="497" y="446" fill="#17323F" text-anchor="middle">基希菲德橋</text>
+<text x="497" y="458" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Kirchenfeldbrücke</text>
+<text x="612" y="400" fill="#8CA3AF" font-size="9.5" font-weight="400">22 分・沿河外側往南繞</text>
 
-<circle cx="292" cy="192" r="15" fill="#C4653F"/><text x="292" y="197" fill="#fff" text-anchor="middle" font-size="11">10</text>
-<text x="266" y="188" fill="#17323F" text-anchor="end">聯邦國會大廈</text>
-<text x="266" y="202" fill="#8CA3AF" text-anchor="end" font-size="10" font-weight="400">Bundeshaus</text>
+<circle cx="412" cy="340" r="15" fill="#C4653F"/><text x="412" y="345" fill="#fff" text-anchor="middle" font-size="11">10</text>
+<text x="412" y="318" fill="#17323F" text-anchor="middle">聯邦國會大廈</text>
+<text x="412" y="306" fill="#8CA3AF" text-anchor="middle" font-size="10" font-weight="400">Bundeshaus</text>
+<text x="250" y="308" fill="#8CA3AF" font-size="9.5" font-weight="400">7 分回飯店</text>
 </g>
 
 <g font-size="11" fill="#4E6B79" font-weight="400">
-<circle cx="30" cy="430" r="6" fill="#4A7C6F"/><text x="44" y="434">上午　老城主街東行</text>
-<circle cx="196" cy="430" r="6" fill="#C4653F"/><text x="210" y="434">下午–傍晚　過河・玫瑰園・夜景</text>
-<text x="30" y="456" fill="#B15A16" font-weight="700">⚠ 走 Kirchenfeldbrücke 過橋時可同時拍到聯邦大廈＋大教堂＋阿勒河</text>
+<circle cx="30" cy="466" r="6" fill="#4A7C6F"/><text x="44" y="470">上午　老城主街東行</text>
+<circle cx="176" cy="466" r="6" fill="#C4653F"/><text x="190" y="470">下午–傍晚　過河・玫瑰園・夜景</text>
+<text x="30" y="492" fill="#B15A16" font-weight="700">⚠ 下午段純步行約 46 分鐘（不含停留）；走基希菲德橋過河時可同時拍到聯邦大廈＋大教堂＋阿勒河</text>
 </g></svg>`;
 
 /* ---------- 8/26 蘇黎世市區 ---------- */
