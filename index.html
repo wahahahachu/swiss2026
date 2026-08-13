@@ -151,6 +151,12 @@ h1,h2,h3{ margin:0; font-weight:700; letter-spacing:.02em; }
 .nc-btns button:active{ background:var(--sky-deep); color:#fff; }
 .nc-simple{ font-size:14.5px; line-height:1.7; color:var(--ink-2); }
 .nc-simple b{ color:var(--ink); }
+.nc-var{ display:flex; gap:8px; margin-top:14px; }
+.nc-vbtn{
+  flex:1; border:1.5px solid var(--sky); background:var(--surface); color:var(--sky-deep);
+  border-radius:99px; padding:8px 6px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit;
+}
+.nc-vbtn.is-on{ background:var(--sky-deep); border-color:var(--sky-deep); color:#fff; }
 
 /* ============================ 區塊 ============================ */
 main{ padding:0 0 60px; }
@@ -605,6 +611,7 @@ main{ padding:0 0 60px; }
       </section>
     </div>
   </div>
+<div style="text-align:center; padding:10px 0 26px; font-size:11px; color:#8CA0AD;">build 0813-v2</div>
 </main>
 
 <div class="lb" id="lb">
@@ -1780,6 +1787,11 @@ document.addEventListener("click", e=>{
     const id=vb.dataset.day, i=vb.dataset.idx;
     $$(`.variant-btn[data-day="${id}"]`).forEach(b=>b.classList.toggle("is-active", b.dataset.idx===i));
     $$(`.variant-pane[data-day="${id}"]`).forEach(p=>p.classList.toggle("is-active", p.dataset.idx===i));
+    try{
+      if (typeof NOW_CFG!=="undefined" && NOW_CFG[id] && NOW_CFG[id].variants){
+        const o=loadAnc(); (o[id]=o[id]||{}).v = i==="1"?"v2":"v1"; saveAnc(o); renderNow();
+      }
+    }catch(_){}
     return;
   }
   const j = e.target.closest("[data-target]");
@@ -2014,14 +2026,30 @@ const NOW_CFG = {
       done:{ ph:"今日行程完成", do:"回到 Zermatt，逛 Hinterdorf 老村區・晚餐 🎉", tip:"超市補給：<strong>車站旁 Denner 最便宜</strong>；明天雙山，還沒訂 8/27 Rock Experience 今晚訂" } };
     } },
   d11:{ anchors:[ {k:"a1",label:"Gornergrat 齒軌上山",def:"08:00"} ],
-    build(a1){
-      const top=a1+33, rif=690, lunch=750, gStart=795, gEnd=940, dn=990;
+    variants:["v1　分開往返","v2　Furi 纜車串接"],
+    build(a1, v){
+      const top=a1+33, rif=690;
+      if (v === "v2"){
+        const lunch2=765, furi=800, gEnd2=920, dn2=980;
+        return { tl:[
+          { s:a1-15, e:a1, ph:"候車", do:"Zermatt GGB 齒軌車站（火車站正對面）", tip:"<strong>至少提早 15 分鐘上車</strong>，夏季人很多；<strong>上山坐左手邊</strong>，過 Rotenboden 後有機會拍到戈爾內格拉特湖", hard:a1 },
+          { s:a1, e:top, ph:"上山中", do:"齒軌列車 33 分 → Gornergrat 觀景台", tip:"下車後還要走 10–15 分鐘上坡" },
+          { s:top, e:rif, ph:"觀景＋拍湖", do:"Gornergrat 觀景台 → 下山中停 Rotenboden 拍 Riffelsee 倒影", tip:"一早湖面平靜最好拍；<strong>最晚 11:30 離開</strong>；再往前一小段還有第二個小湖", hard:rif },
+          { s:rif, e:lunch2, ph:"午餐", do:"Riffelberg 站餐廳午餐", tip:"Buffet &amp; Bar Riffelberg，窗外就是馬特洪峰" },
+          { s:lunch2, e:furi, ph:"轉場", do:"Riffelberg → 纜車 → Furi", tip:"從山上一路玩到山下、不走回頭路" },
+          { s:furi, e:gEnd2, ph:"山頂遊覽", do:"馬特洪峰冰川天堂：冰宮・360 觀景台", tip:`<strong>${nmm(gEnd2)} 開始下山</strong> —— 末班纜車 16:15–16:30（TBC），別在山上玩過頭`, hard:gEnd2 },
+          { s:gEnd2, e:dn2, ph:"下山中", do:"纜車 → Zermatt Bergbahnen 纜車站", tip:"" }
+        ],
+        early:{ ph:"還沒開始", do:`今天 ${nmm(a1-15)} 到 GGB 齒軌車站（v2 Furi 串接）`, tip:`<strong>${nmm(a1)} 上山</strong>；一早湖面平靜最好拍倒影` },
+        done:{ ph:"今日行程完成", do:"回到 Zermatt，晚餐 🎉", tip:"明天中午前往蘇黎世，早上可補拍日出（Kirchbrücke）" } };
+      }
+      const lunch=750, gStart=795, gEnd=940, dn=990;
       return { tl:[
-        { s:a1-15, e:a1, ph:"候車", do:"Zermatt GGB 齒軌車站（火車站正對面）", tip:"<strong>至少提早 15 分鐘上車</strong>，夏季人很多；v1 坐右邊、v2 坐左邊", hard:a1 },
+        { s:a1-15, e:a1, ph:"候車", do:"Zermatt GGB 齒軌車站（火車站正對面）", tip:"<strong>至少提早 15 分鐘上車</strong>，夏季人很多；<strong>去程坐右邊、回程坐左邊</strong>，馬特洪峰大部分時間在右手邊", hard:a1 },
         { s:a1, e:top, ph:"上山中", do:`齒軌列車 33 分 → Gornergrat 觀景台`, tip:"下車後還要走 10–15 分鐘上坡" },
         { s:top, e:rif, ph:"觀景＋拍湖", do:"Gornergrat 觀景台 → 下山中停 Rotenboden 拍 Riffelsee 倒影", tip:"<strong>Riffelsee 中午前光線最好，最晚 11:30 離開</strong>；再往前一小段還有第二個小湖", hard:rif },
-        { s:rif, e:lunch, ph:"午餐", do:"午餐（v1 回 Zermatt／v2 Riffelberg 站餐廳）", tip:"Rotenboden 站沒有餐廳" },
-        { s:lunch, e:gStart, ph:"轉場", do:"前往冰川天堂路線（v1 接駁巴士→纜車／v2 Riffelberg→Furi）", tip:"v1 轉場：走路 20 分或免費接駁巴士 3 分" },
+        { s:rif, e:lunch, ph:"午餐", do:"火車下山 → Zermatt 午餐", tip:"Rotenboden 站沒有餐廳" },
+        { s:lunch, e:gStart, ph:"轉場", do:"轉場至 Zermatt 纜車站 → Furi → Trockener Steg", tip:"轉場：走路 20 分或<strong>免費接駁巴士 3 分</strong>；Trockener Steg 轉車空檔可看 10–15 分鐘冰河" },
         { s:gStart, e:gEnd, ph:"山頂遊覽", do:"馬特洪峰冰川天堂：冰宮・360 觀景台", tip:`<strong>${nmm(gEnd)} 開始下山</strong> —— 末班纜車 16:30 是今天唯一硬性時間`, hard:gEnd },
         { s:gEnd, e:dn, ph:"下山中", do:"纜車下山 → Zermatt", tip:"末班：冰川天堂 16:30｜Furi→Trockener Steg 16:45" }
       ],
@@ -2089,12 +2117,23 @@ function renderNow(){
 
   if (cfg){
     const vals = cfg.anchors.map(a => nParse(ancVal(day.id, a.k, a.def)));
-    const R = cfg.build(...vals);
+    let vsel = null;
+    if (cfg.variants){
+      const o = loadAnc();
+      vsel = (o[day.id] && o[day.id].v === "v2") ? "v2" : "v1";
+    }
+    const R = cfg.build(...vals, vsel);
     let seg=null, next=null;
     for (let i=0;i<R.tl.length;i++) if (sw.min>=R.tl[i].s && sw.min<R.tl[i].e){ seg=R.tl[i]; next=R.tl[i+1]||null; break; }
     if (!seg && sw.min <  R.tl[0].s){ seg=R.early; next=R.tl[0]; }
     if (!seg && sw.min >= R.tl[R.tl.length-1].e) seg=R.done;
     inner = nowSegHtml(seg, next, sw.min);
+    if (cfg.variants){
+      inner += `<div class="nc-var">`+cfg.variants.map((nm,i)=>{
+        const k = i ? "v2" : "v1";
+        return `<button type="button" class="nc-vbtn${k===vsel?" is-on":""}" data-vday="${day.id}" data-v="${k}">${nm}</button>`;
+      }).join("")+`</div>`;
+    }
     inner += `<div class="nc-anchors"><div class="al">🚂 關鍵班次（改了整天自動重排，會記住）</div><div class="row">`+
       cfg.anchors.map(a=>`<label>${a.label}<input type="time" data-anc="${a.k}" data-day="${day.id}" value="${ancVal(day.id,a.k,a.def)}"></label>`).join("")+
       `</div></div>`;
@@ -2121,6 +2160,32 @@ document.addEventListener("change", e=>{
   saveAnc(o);
   renderNow();
 });
+
+/* 路線版本切換（NOW 卡片 ↔ 當日卡片分頁 雙向同步＋記憶） */
+function setVariant(dayId, v){
+  const o = loadAnc();
+  (o[dayId] = o[dayId] || {}).v = v;
+  saveAnc(o);
+  const idx = v === "v2" ? "1" : "0";
+  $$(`.variant-btn[data-day="${dayId}"]`).forEach(b=>b.classList.toggle("is-active", b.dataset.idx===idx));
+  $$(`.variant-pane[data-day="${dayId}"]`).forEach(p=>p.classList.toggle("is-active", p.dataset.idx===idx));
+  renderNow();
+}
+document.addEventListener("click", e=>{
+  const vb = e.target.closest(".nc-vbtn[data-vday]");
+  if (vb) setVariant(vb.dataset.vday, vb.dataset.v);
+});
+
+/* 載入時套用記住的版本到當日卡片分頁 */
+(function(){
+  const o = loadAnc();
+  Object.keys(NOW_CFG).forEach(id=>{
+    if (NOW_CFG[id].variants && o[id] && o[id].v === "v2"){
+      $$(`.variant-btn[data-day="${id}"]`).forEach(b=>b.classList.toggle("is-active", b.dataset.idx==="1"));
+      $$(`.variant-pane[data-day="${id}"]`).forEach(p=>p.classList.toggle("is-active", p.dataset.idx==="1"));
+    }
+  });
+})();
 
 renderNow();
 setInterval(renderNow, 30000);
