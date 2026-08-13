@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1B6494">
 <title>2026 瑞士 ｜ 8/17–8/27</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="瑞士行程">
 <meta name="description" content="瑞士自由行行程速查 — 每日動線、關鍵提醒、路線圖與重要連結">
 <style>
 /* ==========================================================================
@@ -611,7 +615,6 @@ main{ padding:0 0 60px; }
       </section>
     </div>
   </div>
-<div style="text-align:center; padding:10px 0 26px; font-size:11px; color:#8CA0AD;">build 0813-v2</div>
 </main>
 
 <div class="lb" id="lb">
@@ -2190,6 +2193,11 @@ document.addEventListener("click", e=>{
 renderNow();
 setInterval(renderNow, 30000);
 document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) renderNow(); });
+
+/* 離線快取：註冊 Service Worker（file:// 開啟或不支援時自動略過） */
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("./sw.js").catch(()=>{});
+}
 </script>
 </body>
 </html>
