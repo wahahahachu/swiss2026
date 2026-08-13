@@ -192,7 +192,13 @@ main{ padding:0 0 60px; }
 .tt .c-d{ white-space:nowrap; font-weight:700; color:var(--sky-deep); }
 .tt .c-d small{ display:block; font-weight:500; color:var(--ink-3); font-size:11.5px; }
 .tt .c-h{ color:var(--ink-2); font-size:12.5px; }
-.wt .wx{ display:inline-block; margin-left:6px; padding:1px 8px; border-radius:99px; background:var(--sky-soft); color:var(--sky-deep); font-size:11px; font-weight:700; white-space:nowrap; cursor:pointer; }
+.wt .wx{
+  display:block; width:max-content; margin:7px 0 2px; padding:8px 16px; border-radius:99px;
+  background:var(--sky-soft); border:1px solid var(--sky); color:var(--sky-deep);
+  font-size:12.5px; font-weight:700; white-space:nowrap; cursor:pointer;
+  -webkit-tap-highlight-color:rgba(46,143,212,.25);
+}
+.wt .wx:active{ background:var(--sky-deep); color:#fff; }
 .tt .c-a{ color:var(--alert-ink); font-size:12.5px; }
 .tt-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 
@@ -579,7 +585,7 @@ main{ padding:0 0 60px; }
         </div>
         <div class="card todo">
           <ul class="todo-list">
-            <li><span class="tag">8/27</span>萊茵瀑布 <strong>Rock Experience 遊船</strong> —— 8 月旺季船票搶手，建議現在就上網訂 <strong>14:30</strong> 時段</li>
+            <li><span class="tag">8/27</span>萊茵瀑布 <strong>Rock Experience 遊船</strong> —— 8 月旺季船票搶手，建議現在就上網訂 <strong>15:00</strong> 時段</li>
             <li><span class="tag">8/22</span>少女峰 <strong>Eiger Express／少女峰鐵路</strong> —— 座位需要預約，<strong>線上購票時一併完成</strong></li>
             <li><span class="tag">8/19</span><strong>Pilatus Golden Round Trip</strong> —— 雖非必要提前訂，但旺季建議線上先買，現場排隊常常很長</li>
           </ul>
@@ -966,7 +972,7 @@ ${SVG_DEFS}<rect width="760" height="450" fill="#F7FBFD"/>
 <g font-size="12" fill="#17323F">
 <circle cx="204" cy="300" r="14" fill="#2E8FD4"/><text x="204" y="305" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">6</text>
 <text x="226" y="296" font-weight="700">沃爾特小城堡碼頭</text>
-<text x="226" y="309" font-size="10" fill="#B15A16" font-weight="700">Schlössli Wörth・直接登船 14:30</text>
+<text x="226" y="309" font-size="10" fill="#B15A16" font-weight="700">Schlössli Wörth・直接登船 15:00</text>
 <circle cx="166" cy="176" r="14" fill="#2E8FD4"/><text x="166" y="181" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">7</text>
 <text x="188" y="172" font-weight="700">高處觀景平台</text>
 <text x="188" y="185" font-size="10" fill="#8CA3AF">拍瀑布全景最佳位置</text>
@@ -1369,7 +1375,7 @@ const DAYS = [
     "<strong>末班纜車約 18:00</strong>，預計 16:45 回到 Sunnegga，緩衝約 1 小時 15 分",
     "<strong>超市採買</strong> —— 策馬特鎮內超市非常多（Coop、Migros 等），其中<strong>鄰近車站的 Denner 最便宜</strong>，下山後順路補給",
     "拍照時段 —— <strong>日出</strong>：日出前 15 分鐘到 Uferweg（教堂橋要提早半小時）；<strong>日落</strong>：Viewpoint Riedweg",
-    "⚑ <strong>還沒訂 8/27 萊茵瀑布 Rock Experience 遊船的話，今天要訂了</strong> —— 8 月旺季船票搶手，指定 14:30 時段"
+    "⚑ <strong>還沒訂 8/27 萊茵瀑布 Rock Experience 遊船的話，今天要訂了</strong> —— 8 月旺季船票搶手，指定 15:00 時段"
   ],
   slots:[
     { l:"早上", b:"Bern → <em class='mv'>08:07 IC6</em> → <span class='t'>10:17</span> Zermatt（行李放飯店）→ <em class='mv'>纜車三段</em> → Sunnegga → Blauherd → <strong>Rothorn 山頂</strong><br><small>纜車站就在飯店門口；進站要走 80–150 公尺地下隧道，車程 4–4.5 分鐘</small>" },
@@ -1425,7 +1431,7 @@ const DAYS = [
         "Rotenboden 站沒有餐廳，要到 Riffelberg 才有",
         "兩站轉場：走路 20 分鐘或搭<strong>免費接駁巴士 3 分鐘</strong>",
         "<strong>冰川天堂末班纜車 16:30</strong> —— 今天唯一硬性時間，15:30–15:45 就要開始下山",
-        "⚑ <strong>8/27 萊茵瀑布 Rock Experience 遊船最後提醒</strong> —— 還沒訂就今天訂，指定 14:30 時段"
+        "⚑ <strong>8/27 萊茵瀑布 Rock Experience 遊船最後提醒</strong> —— 還沒訂就今天訂，指定 15:00 時段"
       ],
       slots:[
         { l:"早上", b:"Zermatt → <em class='mv'>Gornergrat 齒軌列車</em>（33 分鐘，<strong>坐右邊</strong>）→ Gornergrat 觀景台<br><small>觀景台在 Kulmhotel 與天文台後面，下車還要走 10–15 分鐘上坡</small>" },
@@ -1453,7 +1459,7 @@ const DAYS = [
         "一早上山 —— <strong>Riffelsee 湖面平靜好拍倒影</strong>，中午後戈爾內格拉特峰背光",
         "午餐在 Riffelberg 站餐廳，窗外就是馬特洪峰",
         "<strong>末班纜車 16:15–16:30（TBC）</strong>，別在山上玩過頭",
-        "⚑ <strong>8/27 萊茵瀑布 Rock Experience 遊船最後提醒</strong> —— 還沒訂就今天訂，指定 14:30 時段"
+        "⚑ <strong>8/27 萊茵瀑布 Rock Experience 遊船最後提醒</strong> —— 還沒訂就今天訂，指定 15:00 時段"
       ],
       slots:[
         { l:"早上", b:"Zermatt GGB 齒軌車站 → <em class='mv'>齒軌列車</em>（約 33 分鐘，<strong>坐左邊</strong>）→ Gornergrat 觀景台<br><small>GGB＝戈爾內格拉特鐵路，車站就在策馬特火車站正對面</small>" },
@@ -1509,7 +1515,7 @@ const DAYS = [
 /* ---------------- 8/27 沙夫豪森＋萊茵瀑布 ---------------- */
 { id:"d13", date:"8/27", wd:"四", nav:"萊茵瀑布", title:"沙夫豪森＋萊茵瀑布",
   hotel:"Mama Shelter（Zürich）",
-  alertShort:"南北岸搭火車轉移；Rock Experience 記得先訂 14:30 時段",
+  alertShort:"09:30 出發；南北岸搭渡輪轉移；Rock Experience 先訂 15:00 時段",
   route:["Zürich HB","~火車 40–50 分","Schaffhausen 老城","Munot 堡壘","~火車","Schloss Laufen（南岸）",
          "Belvedere","Känzeli","Fischetz","南岸碼頭","~2 號紅線渡輪","Schlössli Wörth（北岸）",
          "Rock Experience 遊船","高處觀景平台","北側觀景區","~電梯","Neuhausen Rheinfall 站",
@@ -1519,16 +1525,27 @@ const DAYS = [
     "<strong>南北岸不能走橋</strong> —— 主要方案搭 <strong>2 號紅線渡輪</strong>（Rock Experience 船票已含來回、不需另外購票，每 15 分鐘一班、不需預約）；備用方案搭火車 S12／S33，每 30 分鐘一班、車程 2–4 分鐘",
     "⏰ <strong>走渡輪要抓 20 分鐘緩衝</strong> —— 開船前 20 分鐘抵達南岸碼頭（Schloss Laufen landing stage），不是原本北岸出發的 10 分鐘。<strong>訂 Rock Experience 時段時要把這個差異算進去</strong>",
     "Munot 進大門後<strong>別直走上樓</strong> —— 螺旋步道入口在大門旁邊，直走容易錯過",
-    "<strong>Rock Experience 14:30 時段先線上訂</strong>；去程盡量坐船頭或靠外側",
+    "<strong>Rock Experience 15:00 時段先線上訂</strong>；去程盡量坐船頭或靠外側",
     "南岸是<strong>近距離刺激感</strong>、北岸是<strong>拍全景</strong>，兩邊互補不重複；三個觀景台只能選一個的話 Känzeli CP 值最高",
     "回程搭電梯回 Neuhausen Rheinfall 站，<strong>坡度很陡別用走的</strong>；搭 <strong>S9 區間車</strong>直達 Zürich HB 約 50 分、每 30 分鐘一班"
   ],
   slots:[
-    { l:"早上", b:"Zürich HB → <em class='mv'>火車 40–50 分</em> → Schaffhausen → 老城（Vorstadt → Fronwagplatz → Vordergasse）→ <strong>Munot 堡壘</strong><br><small>老城重點：彩繪立面老屋、Erker 飄窗、地標騎士之家；老城約 1 小時／Munot 約 30–45 分</small>" },
-    { l:"中午", b:"<em class='mv'>火車</em> → Schloss Laufen am Rheinfall（南岸）→ 電梯上城堡 → Rheinbrücke bei Laufen 高處觀景 → 原路走回城堡" },
-    { l:"下午", b:"通過閘門沿 Panoramaweg 往下 → <strong>Belvedere → Känzeli → Fischetz</strong> → 下方閘門出去 → 南岸碼頭 → <em class='mv'>2 號紅線渡輪</em> → Schlössli Wörth → <strong>直接登船搭 Rock Experience</strong><span class='t'> 14:30</span><br><small>Belvedere 視野最寬｜Känzeli 最近水面會噴濕｜Fischetz 洞穴通道要低頭<br><strong>開船前 20 分鐘要到南岸碼頭</strong>；渡輪已含在船票裡，不用另外買</small>" },
-    { l:"晚上", b:"下船後走到<strong>高處觀景平台</strong>拍瀑布全景 → 沿河岸漫步到北側觀景區 → <em class='mv'>電梯</em> → Neuhausen Rheinfall 站 → <em class='mv'>S9 區間車 約 50 分</em> → Zürich HB<br><small>遊船全程約 30 分鐘，中途停靠巨岩可爬 100 多階到 30 公尺高觀景平台；回車站坡很陡，搭電梯別用走的</small>" }
+    { l:"早上", b:"<span class='t'>09:30</span> 飯店（Oerlikon）出發 → <span class='t'>09:40</span> Zürich HB → <span class='t'>09:50</span> <em class='mv'>火車</em> → <span class='t'>10:35–10:40</span> 抵達 Schaffhausen → 老城（Vorstadt → Fronwagplatz → Vordergasse）→ <strong>Munot 堡壘</strong><br><small><span class='t'>10:40–12:30</span> 老城＋Munot 約 1.5–2 小時；重點：彩繪立面老屋、Erker 飄窗、地標騎士之家</small>" },
+    { l:"中午", b:"<span class='t'>12:30</span> <em class='mv'>火車</em> → <span class='t'>12:40</span> Schloss Laufen am Rheinfall（南岸）→ 電梯上城堡 → Rheinbrücke bei Laufen 高處觀景 → 原路走回城堡" },
+    { l:"下午", b:"通過閘門沿 Panoramaweg 往下 → <strong>Belvedere → Känzeli → Fischetz</strong>（<span class='t'>12:40–14:15</span> 約 1.5 小時）→ <span class='t'>14:15</span> 下方閘門出去、走到南岸碼頭 → <strong><span class='t'>14:50</span> 前抵達碼頭</strong> → <em class='mv'>2 號紅線渡輪</em> → Schlössli Wörth → <strong>直接登船搭 Rock Experience</strong><span class='t'> 15:00</span><br><small>Belvedere 視野最寬｜Känzeli 最近水面會噴濕｜Fischetz 洞穴通道要低頭<br><strong>開船前 20 分鐘要到南岸碼頭（14:50）</strong>；渡輪已含在船票裡，不用另外買</small>" },
+    { l:"晚上", b:"<span class='t'>15:35</span> 下船後走到<strong>高處觀景平台</strong>拍瀑布全景（<span class='t'>15:35–16:15</span>）→ <span class='t'>16:15</span> 走到 Neuhausen Rheinfall 站（<em class='mv'>電梯</em>）→ <span class='t'>16:30</span> <em class='mv'>S9 區間車 約 50 分</em> → 約 <span class='t'>17:20</span> 回到 Zürich HB<br><small>遊船全程約 30 分鐘，中途停靠巨岩可爬 100 多階到 30 公尺高觀景平台；回車站坡很陡，搭電梯別用走的</small>" }
   ],
+  spots:{
+    title:"Stein am Rhein 萊茵河畔施泰因（備案）", time:"建議停留 1.5–2 小時・Schaffhausen 火車約 25–27 分、每 30 分一班",
+    items:[
+      "<strong>Rathausplatz 市政廳廣場</strong><small>常被稱為「瑞士最美的城鎮廣場」——整圈都是濕壁畫裝飾的 16 世紀老屋，包括 Rathaus 市政廳、Haus zur Sonne 太陽之家，每棟外牆彩繪主題都不同，是小鎮的精華所在</small>",
+      "<strong>Stadtbrunnen 市政噴泉</strong><small>就在廣場中央，1601 年建造，雕有聖喬治屠龍雕像，底座還有四幅描繪當地歷史的浮雕</small>",
+      "<strong>老城城門</strong><small>Untertor、Obertor，還有 Hexenturm 女巫塔，沿路散步途中會經過</small>",
+      "<strong>Rheinbrücke 萊茵橋</strong><small>連接新舊城區，老城主要集中在河的一側</small>",
+      "<strong>Hohenklingen 城堡（順遊選項）</strong><small>位在小鎮上方山丘，可俯瞰萊茵河與小鎮全景；健行上去約 20–30 分鐘，需要額外體力與時間，不是必去</small>",
+      "<strong>💡 提示</strong><small>核心精華就是 Rathausplatz 廣場本身——站在廣場中央環顧四周的濕壁畫建築就是最大價值，不需要刻意排很多個別景點；Hohenklingen 只在時間充裕時加入</small>"
+    ]
+  },
   maps:[
     { label:"① 上午　沙夫豪森老城 → Munot 堡壘",
       url:"https://www.google.com/maps/dir/?api=1&origin=Bahnhof+Schaffhausen&destination=Munot,Schaffhausen&waypoints=Fronwagplatz,Schaffhausen%7CHaus+zum+Ritter,Schaffhausen%7CM%C3%BCnsterplatz,Schaffhausen&travelmode=walking" },
@@ -1544,7 +1561,7 @@ const DAYS = [
   ],
   fares:[
     ["Schloss Laufen 觀景台（含電梯）","約 CHF 5"],
-    ["Rock Experience 遊船（已含 2 號紅線渡輪來回）","建議先線上訂 14:30"]
+    ["Rock Experience 遊船（已含 2 號紅線渡輪來回）","建議先線上訂 15:00"]
   ],
   links:[
     { label:"萊茵瀑布遊船 Rock Experience", url:"https://rhyfall-maendli.ch/en/tickets/" },
@@ -2061,23 +2078,25 @@ const NOW_CFG = {
       early:{ ph:"還沒開始", do:`今天 ${nmm(a1-15)} 到 GGB 齒軌車站`, tip:`<strong>${nmm(a1)} 上山</strong>；一早湖面平靜最好拍倒影` },
       done:{ ph:"今日行程完成", do:"回到 Zermatt，晚餐 🎉", tip:"明天中午前往蘇黎世，早上可補拍日出（Kirchbrücke）" } };
     } },
-  d13:{ anchors:[ {k:"a0",label:"Zürich HB 出發",def:"08:30"}, {k:"a1",label:"Rock Experience 時段",def:"14:30"} ],
+  d13:{ anchors:[ {k:"a0",label:"飯店（Oerlikon）出發",def:"09:30"}, {k:"a1",label:"Rock Experience 時段",def:"15:00"} ],
     build(a0,a1){
-      const sh=a0+45, old=sh+60, mun=old+40, lau=mun+30, pier=a1-20, boat=a1, be=a1+30, north=be+60, s9=north+30, hb=s9+50;
+      const hbz=a0+10, dep=a0+20, sh=dep+47, old2=sh+113, lau=old2+10,
+            walkPier=a1-45, pierArr=a1-10, boat=a1, be=a1+35, north=be+40, s9=north+15, hb=s9+50;
       return { tl:[
-        { s:a0-20, e:a0, ph:"前往車站", do:"前往 Zürich HB", tip:`<strong>${nmm(a0)} 發車</strong>往 Schaffhausen（40–50 分）`, hard:a0 },
-        { s:a0, e:sh, ph:"移動中", do:`火車 → 約 ${nmm(sh)} 抵達 Schaffhausen`, tip:"" },
-        { s:sh, e:old, ph:"老城散步", do:"Vorstadt → Fronwagplatz → Vordergasse（約 1 小時）", tip:"重點：彩繪立面老屋、Erker 飄窗、騎士之家" },
-        { s:old, e:mun, ph:"堡壘", do:"Munot 堡壘（30–45 分）", tip:"進大門後<strong>別直走上樓</strong>，螺旋步道入口在大門旁邊" },
-        { s:mun, e:lau, ph:"移動中", do:"火車 → Schloss Laufen（南岸）→ 電梯上城堡", tip:"" },
-        { s:lau, e:pier, ph:"南岸觀景", do:"Rheinbrücke 高處 → Panoramaweg：Belvedere → Känzeli → Fischetz", tip:`Belvedere 視野最寬｜Känzeli 最近水面會噴濕｜Fischetz 要低頭；<strong>${nmm(pier)} 前要到南岸碼頭</strong>（開船前 20 分鐘）`, hard:pier },
-        { s:pier, e:boat, ph:"候船", do:"南岸碼頭 → 2 號紅線渡輪 → Schlössli Wörth", tip:`渡輪已含在船票裡、每 15 分鐘一班；<strong>${nmm(boat)} Rock Experience 開船</strong>`, hard:boat },
-        { s:boat, e:be, ph:"遊船中", do:"Rock Experience 遊船（約 30 分）", tip:"中途停靠巨岩可爬 100 多階上 30 公尺觀景平台；盡量坐船頭或靠外側" },
+        { s:a0, e:hbz, ph:"出發", do:`飯店（Oerlikon）出發 → ${nmm(hbz)} 抵達 Zürich HB`, tip:`<strong>${nmm(dep)} 火車發車</strong>往 Schaffhausen`, hard:dep },
+        { s:hbz, e:dep, ph:"候車", do:`Zürich HB 候車，等 ${nmm(dep)} 發車`, tip:"" },
+        { s:dep, e:sh, ph:"移動中", do:`火車 → 約 ${nmm(sh)} 抵達 Schaffhausen`, tip:"" },
+        { s:sh, e:old2, ph:"老城＋堡壘", do:"老城散步（Vorstadt → Fronwagplatz → Vordergasse）→ Munot 堡壘", tip:`約 1.5–2 小時；Munot 進大門後<strong>別直走上樓</strong>，螺旋步道入口在大門旁邊；<strong>${nmm(old2)} 要搭車轉往南岸</strong>`, hard:old2 },
+        { s:old2, e:lau, ph:"移動中", do:"火車 → Schloss Laufen（南岸）→ 電梯上城堡", tip:"" },
+        { s:lau, e:walkPier, ph:"南岸觀景", do:"Rheinbrücke 高處 → Panoramaweg：Belvedere → Känzeli → Fischetz", tip:`Belvedere 視野最寬｜Känzeli 最近水面會噴濕｜Fischetz 要低頭；<strong>${nmm(walkPier)} 要開始往南岸碼頭走</strong>`, hard:walkPier },
+        { s:walkPier, e:pierArr, ph:"前往碼頭", do:"下方閘門出去 → 走到南岸碼頭", tip:`<strong>${nmm(pierArr)} 前要抵達碼頭</strong>（開船前 20 分鐘緩衝）`, hard:pierArr },
+        { s:pierArr, e:boat, ph:"候船", do:"已在南岸碼頭 → 2 號紅線渡輪 → Schlössli Wörth", tip:`渡輪已含在船票裡、每 15 分鐘一班；<strong>${nmm(boat)} Rock Experience 開船</strong>` },
+        { s:boat, e:be, ph:"遊船中", do:"渡輪過河＋Rock Experience 遊船", tip:"中途停靠巨岩可爬 100 多階上 30 公尺觀景平台；盡量坐船頭或靠外側" },
         { s:be, e:north, ph:"北岸觀景", do:"高處觀景平台拍全景 → 沿河岸到北側觀景區", tip:"下午北岸拍瀑布順光" },
-        { s:north, e:s9, ph:"移動中", do:"電梯 → Neuhausen Rheinfall 站", tip:"<strong>坡很陡，搭電梯別用走的</strong>；S9 每 30 分鐘一班" },
-        { s:s9, e:hb, ph:"回程", do:`S9 區間車 → 約 ${nmm(hb)} 回到 Zürich HB`, tip:"" }
+        { s:north, e:s9, ph:"移動中", do:"走到 Neuhausen Rheinfall 站（電梯）", tip:"<strong>坡很陡，搭電梯別用走的</strong>；火車每 30 分鐘一班" },
+        { s:s9, e:hb, ph:"回程", do:`火車 約 50 分 → 約 ${nmm(hb)} 回到 Zürich HB`, tip:"" }
       ],
-      early:{ ph:"還沒開始", do:`今天 ${nmm(a0-20)} 前往 Zürich HB`, tip:`<strong>${nmm(a0)} 發車</strong>；上午老城順光、下午北岸拍瀑布順光` },
+      early:{ ph:"還沒開始", do:`今天 ${nmm(a0)} 從飯店（Oerlikon）出發`, tip:`<strong>${nmm(dep)} Zürich HB 發車</strong>；上午老城順光、下午北岸拍瀑布順光` },
       done:{ ph:"今日行程完成", do:"回到蘇黎世，晚餐・整理行李 🎉", tip:"明天 8/28 搭機，晚安" } };
     } }
 };
