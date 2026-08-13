@@ -95,6 +95,55 @@ h1,h2,h3{ margin:0; font-weight:700; letter-spacing:.02em; }
 }
 .chip.is-today:hover{ background:#E0762C; color:#fff; }
 .nav-sep{ flex:0 0 auto; width:1px; height:20px; background:var(--line); margin:0 3px; }
+.more-menu{
+  display:none; position:absolute; left:12px; top:calc(100% + 6px); z-index:70;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  box-shadow:0 10px 30px rgba(27,100,148,.2); padding:6px; min-width:170px;
+}
+.more-menu.is-open{ display:block; }
+.more-menu button{
+  display:block; width:100%; text-align:left; padding:11px 14px; border:0; background:none;
+  font-size:14.5px; font-weight:700; color:var(--ink-2); border-radius:9px; cursor:pointer; font-family:inherit;
+}
+.more-menu button:hover,.more-menu button:active{ background:var(--sky-soft); color:var(--sky-deep); }
+
+/* ============================ NOW 卡片 ============================ */
+.now-card{ background:var(--surface); border-radius:16px; box-shadow:0 4px 16px rgba(27,100,148,.12); overflow:hidden; }
+.now-head{ display:flex; align-items:center; gap:8px; padding:10px 16px; background:linear-gradient(90deg,var(--sky-deep),var(--sky)); color:#fff; }
+.now-head .dot2{ width:8px; height:8px; border-radius:50%; background:#7BF5B0; animation:ncpulse 1.6s infinite; }
+@keyframes ncpulse{ 0%,100%{opacity:1} 50%{opacity:.35} }
+.now-head b{ font-size:13px; letter-spacing:.06em; }
+.now-head small{ margin-left:auto; font-size:12px; opacity:.88; font-variant-numeric:tabular-nums; }
+.now-body{ padding:14px 16px 16px; }
+.nc-phase{ font-size:12px; font-weight:700; color:var(--sky); letter-spacing:.08em; margin-bottom:4px; }
+.nc-doing{ font-size:17px; font-weight:800; line-height:1.45; margin-bottom:6px; color:var(--ink); }
+.nc-tip{ font-size:13px; color:var(--ink-2); line-height:1.6; margin-bottom:10px; }
+.nc-tip strong{ color:var(--alert-ink); }
+.nc-bar{ height:8px; border-radius:99px; background:var(--sky-soft); overflow:hidden; margin-bottom:6px; }
+.nc-bar i{ display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,var(--sky),var(--sky-deep)); transition:width .4s; }
+.nc-lab{ display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); font-variant-numeric:tabular-nums; margin-bottom:12px; }
+.nc-count{ border-radius:12px; padding:10px 14px; font-size:14px; line-height:1.55; background:var(--sky-soft); color:var(--sky-deep); }
+.nc-count b{ font-size:17px; font-variant-numeric:tabular-nums; }
+.nc-count.warn{ background:#FDF3EA; color:var(--alert-ink); }
+.nc-count.danger{ background:#FDF0F0; color:#D64545; }
+.nc-count.ok{ background:#EDF8F2; color:#2E9E6B; }
+.nc-next{ margin-top:12px; padding-top:12px; border-top:1px solid var(--sky-soft); }
+.nc-next .nl{ font-size:11px; font-weight:700; color:var(--ink-3); letter-spacing:.1em; margin-bottom:4px; }
+.nc-next .nt{ font-size:14px; color:var(--ink-2); line-height:1.5; }
+.nc-next .nt b{ color:var(--sky-deep); font-variant-numeric:tabular-nums; }
+.nc-anchors{ margin-top:14px; background:var(--sky-tint); border:1px solid var(--line); border-radius:12px; padding:10px 14px 12px; }
+.nc-anchors .al{ font-size:12px; font-weight:700; color:var(--ink-2); margin-bottom:8px; }
+.nc-anchors .row{ display:flex; gap:10px; flex-wrap:wrap; }
+.nc-anchors label{ flex:1; min-width:130px; font-size:12px; color:var(--ink-2); font-weight:700; display:flex; flex-direction:column; gap:4px; }
+.nc-anchors input{ border:1px solid var(--sky); border-radius:8px; padding:6px 8px; font-size:16px; font-weight:800; color:var(--sky-deep); font-variant-numeric:tabular-nums; background:var(--surface); width:100%; font-family:inherit; }
+.nc-btns{ display:flex; gap:8px; margin-top:12px; }
+.nc-btns button{
+  flex:1; border:1px solid var(--sky); background:var(--sky-soft); color:var(--sky-deep);
+  border-radius:10px; padding:10px 6px; font-size:13.5px; font-weight:700; cursor:pointer; font-family:inherit;
+}
+.nc-btns button:active{ background:var(--sky-deep); color:#fff; }
+.nc-simple{ font-size:14.5px; line-height:1.7; color:var(--ink-2); }
+.nc-simple b{ color:var(--ink); }
 
 /* ============================ 區塊 ============================ */
 main{ padding:0 0 60px; }
@@ -124,6 +173,7 @@ main{ padding:0 0 60px; }
 .tt .c-d{ white-space:nowrap; font-weight:700; color:var(--sky-deep); }
 .tt .c-d small{ display:block; font-weight:500; color:var(--ink-3); font-size:11.5px; }
 .tt .c-h{ color:var(--ink-2); font-size:12.5px; }
+.wt .wx{ display:inline-block; margin-left:6px; padding:1px 8px; border-radius:99px; background:var(--sky-soft); color:var(--sky-deep); font-size:11px; font-weight:700; white-space:nowrap; cursor:pointer; }
 .tt .c-a{ color:var(--alert-ink); font-size:12.5px; }
 .tt-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 
@@ -175,6 +225,7 @@ main{ padding:0 0 60px; }
 .day-t{ flex:1 1 auto; min-width:0; }
 .day-t h3{ font-size:16px; line-height:1.45; }
 .day-t .hotel{ display:block; font-size:12.5px; color:var(--ink-3); margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.hotel[data-url], .c-h [data-url]{ color:var(--sky-deep); text-decoration:underline; text-underline-offset:2px; cursor:pointer; }
 .day-chev{ flex:0 0 auto; width:21px; height:21px; margin-top:6px; color:var(--ink-3); transition:transform .24s; }
 .day.is-open .day-chev{ transform:rotate(180deg); color:var(--sky); }
 .day-body{ display:none; padding:0 16px 18px; }
@@ -433,10 +484,24 @@ main{ padding:0 0 60px; }
   </svg>
 </header>
 
-<nav class="nav" aria-label="日期導覽"><div class="nav-scroll" id="navScroll"></div></nav>
+<nav class="nav" aria-label="日期導覽"><div class="nav-scroll" id="navScroll"></div>
+  <div class="more-menu" id="moreMenu">
+    <button type="button" data-target="overview">📋 行程總表</button>
+    <button type="button" data-target="weather">🌡 氣溫與穿搭</button>
+    <button type="button" data-target="todo">✅ 待辦事項</button>
+    <button type="button" data-target="links">🔗 常用連結</button>
+  </div>
+</nav>
 
 <main>
   <div class="wrap">
+    <section class="section" id="now">
+      <div class="section-head">
+        <span class="section-num">⚡</span><h2>現在該做什麼</h2><span class="note" id="nowNote"></span>
+      </div>
+      <div id="nowBody"></div>
+    </section>
+
     <section class="section" id="overview">
       <div class="section-head">
         <span class="section-num">01</span><h2>行程總表</h2><span class="note">點任一列可跳到當天</span>
@@ -460,16 +525,16 @@ main{ padding:0 0 60px; }
             <tr class="dim"><td class="c-d">8/15<small>（六）</small></td><td>首爾</td><td>–</td><td>–</td><td>卡其羅文無袖</td><td>卡其短褲</td><td>小綠</td></tr>
             <tr class="dim"><td class="c-d">8/16<small>（日）</small></td><td>首爾／飛機／米蘭</td><td>–</td><td>–</td><td>綿羊裝</td><td>綿羊裝</td><td>小綠</td></tr>
             <tr data-target="d3"><td class="c-d">8/17<small>（一）</small></td><td>Como</td><td>18</td><td>28</td><td>u藍T</td><td>黑花洋裝</td><td>小綠</td></tr>
-            <tr data-target="d4"><td class="c-d">8/18<small>（二）</small></td><td>Como → Luzern</td><td>14</td><td>27</td><td>白T</td><td>黑花洋裝</td><td>小綠</td></tr>
-            <tr data-target="d5"><td class="c-d">8/19<small>（三）</small></td><td>Luzern＋Pilatus<br><small>山頂 2,128m 約 8–15°（推算）</small></td><td>8</td><td>23</td><td>灰羅紋長袖</td><td>黑牛仔褲</td><td>小藍＋羽絨背心</td></tr>
-            <tr data-target="d6"><td class="c-d">8/20<small>（四）</small></td><td>Grindelwald＋First</td><td>7</td><td>17</td><td>藍羅紋長袖</td><td>黑牛仔褲</td><td>小藍＋刷毛</td></tr>
-            <tr data-target="d7"><td class="c-d">8/21<small>（五）</small></td><td>瀑布鎮＋因特拉肯</td><td>7</td><td>20</td><td>條紋長袖</td><td>黑牛仔褲</td><td>小藍</td></tr>
-            <tr data-target="d8"><td class="c-d">8/22<small>（六）</small></td><td class="rd">少女峰 Jungfraujoch<br><small>山頂 3,454m 約 -5～3°（推算）</small></td><td class="rd">7</td><td class="rd">17</td><td>灰絨長袖</td><td>黑牛仔褲</td><td class="rd">小藍＋薄羽絨・發熱衣＋fleece／帽子／手套</td></tr>
-            <tr data-target="d9"><td class="c-d">8/23<small>（日）</small></td><td>Bern</td><td>13</td><td>24</td><td>條紋7分袖</td><td>灰軟長褲</td><td>小綠</td></tr>
-            <tr data-target="d10"><td class="c-d">8/24<small>（一）</small></td><td>Rothorn<br><small>山頂 3,103m 約 2–10°（推算）</small></td><td>8</td><td>20</td><td>藍羅紋長袖</td><td>Muji牛仔褲</td><td>小藍＋刷毛</td></tr>
-            <tr data-target="d11"><td class="c-d">8/25<small>（二）</small></td><td class="rd">Gornergrat＋冰川天堂<br><small>冰川天堂 3,883m 約 -8～0°（推算）</small></td><td class="rd">8</td><td class="rd">20</td><td>米羅紋長袖</td><td>Muji牛仔褲</td><td class="rd">小藍＋薄羽絨・發熱衣＋fleece／帽子／手套</td></tr>
-            <tr data-target="d12"><td class="c-d">8/26<small>（三）</small></td><td>策馬特 → 蘇黎世</td><td>14</td><td>24</td><td>白羅紋長袖</td><td>Muji牛仔褲</td><td>小藍</td></tr>
-            <tr data-target="d13"><td class="c-d">8/27<small>（四）</small></td><td>沙夫豪森＋萊茵瀑布</td><td>13</td><td>24</td><td>粉紅</td><td>Muji牛仔褲</td><td>小綠</td></tr>
+            <tr data-target="d4"><td class="c-d">8/18<small>（二）</small></td><td>Como → Luzern<span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/lucerne/6003.html">天氣↗</span></td><td>14</td><td>27</td><td>白T</td><td>黑花洋裝</td><td>小綠</td></tr>
+            <tr data-target="d5"><td class="c-d">8/19<small>（三）</small></td><td>Luzern＋Pilatus<br><small>山頂 2,128m 約 8–15°（推算）</small><span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/lucerne/6003.html">天氣↗</span></td><td>8</td><td>23</td><td>灰羅紋長袖</td><td>黑牛仔褲</td><td>小藍＋羽絨背心</td></tr>
+            <tr data-target="d6"><td class="c-d">8/20<small>（四）</small></td><td>Grindelwald＋First<span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/grindelwald/3818.html">天氣↗</span></td><td>7</td><td>17</td><td>藍羅紋長袖</td><td>黑牛仔褲</td><td>小藍＋刷毛</td></tr>
+            <tr data-target="d7"><td class="c-d">8/21<small>（五）</small></td><td>瀑布鎮＋因特拉肯<span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/lauterbrunnen/3822.html">天氣↗</span></td><td>7</td><td>20</td><td>條紋長袖</td><td>黑牛仔褲</td><td>小藍</td></tr>
+            <tr data-target="d8"><td class="c-d">8/22<small>（六）</small></td><td class="rd">少女峰 Jungfraujoch<br><small>山頂 3,454m 約 -5～3°（推算）</small><span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/jungfraujoch/3801.html">天氣↗</span></td><td class="rd">7</td><td class="rd">17</td><td>灰絨長袖</td><td>黑牛仔褲</td><td class="rd">小藍＋薄羽絨・發熱衣＋fleece／帽子／手套</td></tr>
+            <tr data-target="d9"><td class="c-d">8/23<small>（日）</small></td><td>Bern<span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/bern/3011.html">天氣↗</span></td><td>13</td><td>24</td><td>條紋7分袖</td><td>灰軟長褲</td><td>小綠</td></tr>
+            <tr data-target="d10"><td class="c-d">8/24<small>（一）</small></td><td>Rothorn<br><small>山頂 3,103m 約 2–10°（推算）</small><span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/zermatt/3920.html">天氣↗</span></td><td>8</td><td>20</td><td>藍羅紋長袖</td><td>Muji牛仔褲</td><td>小藍＋刷毛</td></tr>
+            <tr data-target="d11"><td class="c-d">8/25<small>（二）</small></td><td class="rd">Gornergrat＋冰川天堂<br><small>冰川天堂 3,883m 約 -8～0°（推算）</small><span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/zermatt/3920.html">天氣↗</span></td><td class="rd">8</td><td class="rd">20</td><td>米羅紋長袖</td><td>Muji牛仔褲</td><td class="rd">小藍＋薄羽絨・發熱衣＋fleece／帽子／手套</td></tr>
+            <tr data-target="d12"><td class="c-d">8/26<small>（三）</small></td><td>策馬特 → 蘇黎世<span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/zurich/8001.html">天氣↗</span></td><td>14</td><td>24</td><td>白羅紋長袖</td><td>Muji牛仔褲</td><td>小藍</td></tr>
+            <tr data-target="d13"><td class="c-d">8/27<small>（四）</small></td><td>沙夫豪森＋萊茵瀑布<span class="wx" data-url="https://www.meteoswiss.admin.ch/local-forecasts/schaffhausen/8200.html">天氣↗</span></td><td>13</td><td>24</td><td>粉紅</td><td>Muji牛仔褲</td><td>小綠</td></tr>
             <tr class="dim"><td class="c-d">8/28<small>（五）</small></td><td>飛機</td><td>–</td><td>–</td><td>綿羊裝</td><td>綿羊裝</td><td>–</td></tr>
             <tr class="dim"><td class="c-d">8/29<small>（六）</small></td><td>東京</td><td>–</td><td>–</td><td>黑羅文無袖</td><td>卡其短褲</td><td>–</td></tr>
             <tr class="dim"><td class="c-d">8/30<small>（日）</small></td><td>東京</td><td>–</td><td>–</td><td>香奈爾上衣</td><td>灰軟長褲</td><td>–</td></tr>
@@ -1037,12 +1102,6 @@ const DAYS = [
   ],
   spots:{
     title:"琉森 Luzern　老城環線", time:"整段抓 1.5–2 小時・環狀不走回頭路",
-    maps:[
-      { label:"在 Google Maps 開啟這條步行環線",
-        url:"https://www.google.com/maps/dir/?api=1&origin=Hotel+Alpina,Frankenstrasse+6,Luzern&destination=Hotel+Alpina,Frankenstrasse+6,Luzern&waypoints=Kapellbr%C3%BCcke,Luzern%7CPeterskapelle,Luzern%7CKornmarkt,Luzern%7CHirschenplatz,Luzern%7CWeinmarkt,Luzern%7CSpreuerbr%C3%BCcke,Luzern%7CJesuitenkirche,Luzern&travelmode=walking" },
-      { label:"琉森景點地圖（Google My Maps）",
-        url:"https://www.google.com/maps/d/u/0/viewer?mid=1IGj665c1S2yIOXK8n1ON-E7ySemABrg" }
-    ],
     items:[
       "<strong>Kapellbrücke 卡貝爾橋／Wasserturm 水塔</strong><small>從飯店走幾分鐘就到，過橋到北岸</small>",
       "<strong>聖彼得教堂 Peterskapelle</strong><small>就在卡貝爾橋北側</small>",
@@ -1056,6 +1115,10 @@ const DAYS = [
   maps:[
     { label:"Bellagio 老街環線（碼頭出發）",
       url:"https://www.google.com/maps/dir/?api=1&origin=Imbarcadero+Bellagio&destination=Imbarcadero+Bellagio&waypoints=Salita+Serbelloni,Bellagio%7CGiardini+di+Villa+Melzi,Bellagio%7CPunta+Spartivento,Bellagio&travelmode=walking" },
+    { label:"琉森遊覽路線",
+      url:"https://www.google.com/maps/dir/?api=1&origin=Hotel+Alpina,Frankenstrasse+6,Luzern&destination=Hotel+Alpina,Frankenstrasse+6,Luzern&waypoints=Kapellbr%C3%BCcke,Luzern%7CPeterskapelle,Luzern%7CKornmarkt,Luzern%7CHirschenplatz,Luzern%7CWeinmarkt,Luzern%7CSpreuerbr%C3%BCcke,Luzern%7CJesuitenkirche,Luzern&travelmode=walking" },
+    { label:"琉森景點地圖（Google My Maps）",
+      url:"https://www.google.com/maps/d/u/0/viewer?mid=1IGj665c1S2yIOXK8n1ON-E7ySemABrg" },
     { label:"晚上　飯店 → 卡貝爾橋夜景",
       url:"https://www.google.com/maps/dir/?api=1&origin=Hotel+Alpina,Frankenstrasse+6,Luzern&destination=Kapellbr%C3%BCcke,Luzern&travelmode=walking" }
   ],
@@ -1170,7 +1233,7 @@ const DAYS = [
     { label:"Lauterbrunnen 車站 → Staubbach 下方觀景台（1km）",
       url:"https://www.google.com/maps/dir/?api=1&origin=Bahnhof+Lauterbrunnen&destination=Staubbach+Falls+Viewpoint,Lauterbrunnen&travelmode=walking" },
     { label:"傍晚　因特拉肯 阿勒河畔散步（Ost → 大草皮 → West）",
-      url:"https://www.google.com/maps/dir/?api=1&origin=Interlaken+Ost&destination=Interlaken+West&waypoints=H%C3%B6hematte,Interlaken&travelmode=walking" }
+      url:"https://www.google.com/maps/dir/?api=1&origin=Interlaken+Ost&destination=Interlaken+West&waypoints=Hotel+Goldey,Interlaken%7CH%C3%B6hematte,Interlaken&travelmode=walking" }
   ],
   gallery:[
     { type:"img", k:"lb_map",    cap:"Lauterbrunnen 瀑布鎮地圖", sub:"手冊原圖" },
@@ -1275,6 +1338,7 @@ const DAYS = [
     "馬特洪峰<strong>拍照推薦中午以前</strong>，中午過後這一帶容易背光",
     "Murmelweg 全程 3.8 公里，走走拍拍<strong>實際約 2.5 小時</strong>，沿路無遮蔽請做好防曬",
     "<strong>末班纜車約 18:00</strong>，預計 16:45 回到 Sunnegga，緩衝約 1 小時 15 分",
+    "<strong>超市採買</strong> —— 策馬特鎮內超市非常多（Coop、Migros 等），其中<strong>鄰近車站的 Denner 最便宜</strong>，下山後順路補給",
     "拍照時段 —— <strong>日出</strong>：日出前 15 分鐘到 Uferweg（教堂橋要提早半小時）；<strong>日落</strong>：Viewpoint Riedweg",
     "⚑ <strong>還沒訂 8/27 萊茵瀑布 Rock Experience 遊船的話，今天要訂了</strong> —— 8 月旺季船票搶手，指定 14:30 時段"
   ],
@@ -1495,11 +1559,11 @@ const LINK_HUB = [
     { label:"8/17　Como 老城散步",                url:"https://www.google.com/maps/dir/?api=1&origin=Como+San+Giovanni&destination=Piazza+Cavour,Como&waypoints=Duomo+di+Como&travelmode=walking" },
     { label:"8/18　琉森景點地圖（My Maps）",       url:"https://www.google.com/maps/d/u/0/viewer?mid=1IGj665c1S2yIOXK8n1ON-E7ySemABrg" },
     { label:"8/18　Bellagio 老街環線",            url:"https://www.google.com/maps/dir/?api=1&origin=Imbarcadero+Bellagio&destination=Imbarcadero+Bellagio&waypoints=Salita+Serbelloni,Bellagio%7CGiardini+di+Villa+Melzi,Bellagio%7CPunta+Spartivento,Bellagio&travelmode=walking" },
-    { label:"8/18　琉森老城環線（飯店出發）",       url:"https://www.google.com/maps/dir/?api=1&origin=Hotel+Alpina,Frankenstrasse+6,Luzern&destination=Hotel+Alpina,Frankenstrasse+6,Luzern&waypoints=Kapellbr%C3%BCcke,Luzern%7CPeterskapelle,Luzern%7CKornmarkt,Luzern%7CHirschenplatz,Luzern%7CWeinmarkt,Luzern%7CSpreuerbr%C3%BCcke,Luzern%7CJesuitenkirche,Luzern&travelmode=walking" },
+    { label:"8/18　琉森遊覽路線（飯店出發）",       url:"https://www.google.com/maps/dir/?api=1&origin=Hotel+Alpina,Frankenstrasse+6,Luzern&destination=Hotel+Alpina,Frankenstrasse+6,Luzern&waypoints=Kapellbr%C3%BCcke,Luzern%7CPeterskapelle,Luzern%7CKornmarkt,Luzern%7CHirschenplatz,Luzern%7CWeinmarkt,Luzern%7CSpreuerbr%C3%BCcke,Luzern%7CJesuitenkirche,Luzern&travelmode=walking" },
     { label:"8/18　飯店 → 卡貝爾橋夜景",           url:"https://www.google.com/maps/dir/?api=1&origin=Hotel+Alpina,Frankenstrasse+6,Luzern&destination=Kapellbr%C3%BCcke,Luzern&travelmode=walking" },
     { label:"8/21　Trümmelbach → Staubbach 步行",  url:"https://www.google.com/maps/dir/?api=1&origin=Tr%C3%BCmmelbachf%C3%A4lle,Lauterbrunnen&destination=Staubbachfall,Lauterbrunnen&travelmode=walking" },
     { label:"8/21　車站 → Staubbach 下方觀景台",   url:"https://www.google.com/maps/dir/?api=1&origin=Bahnhof+Lauterbrunnen&destination=Staubbach+Falls+Viewpoint,Lauterbrunnen&travelmode=walking" },
-    { label:"8/21　因特拉肯 阿勒河畔散步",         url:"https://www.google.com/maps/dir/?api=1&origin=Interlaken+Ost&destination=Interlaken+West&waypoints=H%C3%B6hematte,Interlaken&travelmode=walking" },
+    { label:"8/21　因特拉肯 阿勒河畔散步",         url:"https://www.google.com/maps/dir/?api=1&origin=Interlaken+Ost&destination=Interlaken+West&waypoints=Hotel+Goldey,Interlaken%7CH%C3%B6hematte,Interlaken&travelmode=walking" },
     { label:"8/23　伯恩上午段（飯店 → 老城 → 尼德格橋）", url:"https://www.google.com/maps/dir/?api=1&origin=Aarbergergasse+55,Bern&destination=Nydeggbr%C3%BCcke,Bern&waypoints=Zytglogge,Bern%7CKramgasse,Bern%7CEinsteinhaus,Bern%7CBerner+M%C3%BCnster&travelmode=walking" },
     { label:"8/23　伯恩下午段（熊公園 → 玫瑰園 → 回飯店）", url:"https://www.google.com/maps/dir/?api=1&origin=Nydeggbr%C3%BCcke,Bern&destination=Aarbergergasse+55,Bern&waypoints=B%C3%A4renPark,Bern%7CRosengarten,Bern%7CKirchenfeldbr%C3%BCcke,Bern%7CBundeshaus,Bern&travelmode=walking" },
     { label:"8/23　飯店 → 聯邦大廈夜景",           url:"https://www.google.com/maps/dir/?api=1&origin=Aarbergergasse+55,Bern&destination=Bundesplatz,Bern&travelmode=walking" },
@@ -1544,20 +1608,39 @@ function todayIndex(){
 }
 $("#navScroll").innerHTML =
   `<button class="chip is-today" data-target="${DAYS[todayIndex()].id}" type="button">👆 今天</button>`+
+  `<button class="chip is-key" data-target="now" type="button">⚡ NOW</button>`+
+  `<button class="chip is-key" id="moreChip" type="button">更多 ▾</button>`+
   `<span class="nav-sep"></span>`+
-  `<button class="chip is-key" data-target="overview" type="button">總表</button>`+
-  `<button class="chip is-key" data-target="weather" type="button">氣溫</button>`+
-  `<button class="chip is-key" data-target="todo" type="button">待辦</button>`+
-  `<span class="nav-sep"></span>`+
-  DAYS.map(d=>`<button class="chip" data-target="${d.id}" type="button"><span class="chip-d">${d.date}</span>${d.nav}</button>`).join("")+
-  `<span class="nav-sep"></span>`+
-  `<button class="chip is-key" data-target="links" type="button">連結</button>`;
+  DAYS.map(d=>`<button class="chip" data-target="${d.id}" type="button"><span class="chip-d">${d.date}</span>${d.nav}</button>`).join("");
 
-$("#ttBody").innerHTML = DAYS.map(d=>`
+/* 「更多」展開選單 */
+const moreMenu = $("#moreMenu"), moreChip = $("#moreChip");
+moreChip.addEventListener("click", e=>{ e.stopPropagation(); moreMenu.classList.toggle("is-open"); });
+moreMenu.addEventListener("click", ()=> moreMenu.classList.remove("is-open"));
+document.addEventListener("click", e=>{
+  if(!e.target.closest("#moreMenu") && !e.target.closest("#moreChip")) moreMenu.classList.remove("is-open");
+});
+
+/* 飯店 → Google Maps 位置連結 */
+const HOTEL_URL = {
+  "Hotel Lago":     "https://www.google.com/maps/search/?api=1&query=Hotel+Lago,+Torno",
+  "Hotel Alpina":   "https://www.google.com/maps/search/?api=1&query=Hotel+Alpina,+Frankenstrasse+6,+Luzern",
+  "Hotel Steinbock":"https://www.google.com/maps/search/?api=1&query=Hotel+Steinbock,+Grindelwald",
+  "Akomo Bern":     "https://www.google.com/maps/search/?api=1&query=Akomo+Bern,+Aarbergergasse+55,+Bern",
+  "Welschen":       "https://www.google.com/maps/search/?api=1&query=Hotel+Welschen,+Zermatt",
+  "Mama Shelter":   "https://www.google.com/maps/search/?api=1&query=Mama+Shelter+Zurich"
+};
+function hotelUrl(h){ const k = Object.keys(HOTEL_URL).find(k=>h && h.indexOf(k)>-1); return k ? HOTEL_URL[k] : null; }
+function hotelHtml(h){ const u = hotelUrl(h); return u ? `<span class="hotel" data-url="${u}">🏨 ${h} ↗</span>` : `<span class="hotel">🏨 ${h}</span>`; }
+
+$("#ttBody").innerHTML = DAYS.map(d=>{
+  const u = hotelUrl(d.hotel);
+  const hcell = u ? `<span data-url="${u}">${d.hotel}</span>` : d.hotel;
+  return `
   <tr data-target="${d.id}">
     <td class="c-d">${d.date}<small>（${d.wd}）</small></td>
-    <td>${d.title}</td><td class="c-h">${d.hotel}</td><td class="c-a">${d.alertShort||""}</td>
-  </tr>`).join("");
+    <td>${d.title}</td><td class="c-h">${hcell}</td><td class="c-a">${d.alertShort||""}</td>
+  </tr>`;}).join("");
 
 function elRoute(r){
   if(!r||!r.length) return "";
@@ -1635,7 +1718,7 @@ $("#dayList").innerHTML = DAYS.map(d=>{
   return `<article class="day" id="${d.id}">
     <button class="day-head" type="button" aria-expanded="false">
       <span class="day-badge"><b>${d.date}</b><span>${d.wd}</span></span>
-      <span class="day-t"><h3>${d.title}</h3><span class="hotel">🏨 ${d.hotel}</span></span>
+      <span class="day-t"><h3>${d.title}</h3>${hotelHtml(d.hotel)}</span>
       <svg class="day-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="day-body">${body}</div></article>`;
@@ -1659,6 +1742,8 @@ function openDay(id, scroll){
   if (scroll && el.scrollIntoView) el.scrollIntoView({ behavior:"smooth", block:"start" });
 }
 document.addEventListener("click", e=>{
+  const hl = e.target.closest("[data-url]");
+  if (hl){ e.stopPropagation(); window.open(hl.dataset.url, "_blank", "noopener"); return; }
   const g = e.target.closest(".gal-item");
   if (g){ openLb(g.dataset.gal, g.dataset.key, g.dataset.cap); return; }
   const lgh = e.target.closest(".lg-head");
@@ -1786,20 +1871,23 @@ $("#btnExpand").addEventListener("click", ()=> $$(".day").forEach(d=>{ d.classLi
 $("#btnCollapse").addEventListener("click", ()=> $$(".day").forEach(d=>{ d.classList.remove("is-open"); $(".day-head",d).setAttribute("aria-expanded","false"); }));
 
 /* --- 捲動同步標籤（只動導覽列，不動頁面） --- */
-const spy = ["overview","weather","todo"].concat(DAYS.map(d=>d.id)).concat(["links"])
+const spy = ["now","overview","weather","todo"].concat(DAYS.map(d=>d.id)).concat(["links"])
   .map(id=>document.getElementById(id)).filter(Boolean);
 const chips = $$(".chip:not(.is-today)"), navBox = $("#navScroll");
+const MORE_IDS = { overview:1, weather:1, todo:1, links:1 };
 let activeId=null, ticking=false;
 function setActive(id){
   if(id===activeId) return; activeId=id;
   chips.forEach(c=>c.classList.toggle("is-active", c.dataset.target===id));
+  moreChip.classList.toggle("is-active", !!MORE_IDS[id]);
   const a = chips.find(c=>c.dataset.target===id); if(!a) return;
   const left = Math.max(0, Math.min(a.offsetLeft-(navBox.clientWidth-a.offsetWidth)/2, navBox.scrollWidth-navBox.clientWidth));
   if (navBox.scrollTo) navBox.scrollTo({ left, behavior:"smooth" }); else navBox.scrollLeft = left;
 }
+const raf = (typeof requestAnimationFrame==="function") ? requestAnimationFrame : (f=>setTimeout(f,16));
 function onScroll(){
   if(ticking) return; ticking=true;
-  requestAnimationFrame(()=>{
+  raf(()=>{
     const line = innerHeight*.3; let cur = spy[0];
     for(const t of spy){ if(t.getBoundingClientRect().top<=line) cur=t; }
     setActive(cur.id);
@@ -1817,6 +1905,209 @@ $("#toTop").addEventListener("click", ()=> scrollTo({ top:0, behavior:"smooth" }
   openDay((n>=0&&n<DAYS.length)?DAYS[n].id:"d8", false);
   if(location.hash) openDay(location.hash.slice(1), true);
 })();
+
+/* ==========================================================================
+   NOW　現在該做什麼（瑞士時區）
+   緊湊天（d6/d8/d10/d11/d13）：錨點班次＋耗時推算完整時間軸
+   其他天：簡化卡；非行程日：倒數／完賦
+   ========================================================================== */
+const nmm = v => String(Math.floor(v/60)).padStart(2,"0")+":"+String(Math.round(v)%60).padStart(2,"0");
+const ndur = v => v>=60 ? Math.floor(v/60)+" 小時"+(v%60? " "+v%60+" 分":"") : v+" 分鐘";
+const nParse = s => { const m=/^(\d{1,2}):(\d{2})$/.exec(s||""); return m ? (+m[1])*60+(+m[2]) : null; };
+
+/* 測試模式：網址加 ?now=8/22-15:00 可強制模擬該日期時間，正式旅行時拿掉即可 */
+const TEST_NOW = (function(){
+  const m = /[?&]now=(\d{1,2})\/(\d{1,2})(?:-(\d{1,2}):(\d{2}))?/.exec(location.search);
+  if(!m) return null;
+  const mo=+m[1], da=+m[2], hh=m[3]!=null?+m[3]:12, mi=m[4]!=null?+m[4]:0;
+  const idx = Math.round((Date.UTC(2026,mo-1,da) - Date.UTC(2026,7,17)) / 86400000);
+  return { idx, min: hh*60+mi, label:`${mo}/${da}` };
+})();
+function swissNow(){
+  if (TEST_NOW) return TEST_NOW;
+  const parts = new Intl.DateTimeFormat("en-GB",{ timeZone:"Europe/Zurich", year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", hour12:false }).formatToParts(new Date());
+  const g = t => +parts.find(x=>x.type===t).value;
+  const y=g("year"), mo=g("month"), d=g("day");
+  const idx = Math.round((Date.UTC(y,mo-1,d) - Date.UTC(2026,7,17)) / 86400000);
+  return { idx, min: (g("hour")%24)*60+g("minute"), label:`${mo}/${d}` };
+}
+
+/* 錨點儲存（localStorage） */
+const ANC_KEY = "swiss26_anchors";
+function loadAnc(){ try{ return JSON.parse(localStorage.getItem(ANC_KEY))||{}; }catch(e){ return {}; } }
+function saveAnc(o){ try{ localStorage.setItem(ANC_KEY, JSON.stringify(o)); }catch(e){} }
+function ancVal(dayId, key, def){ const o=loadAnc(); return (o[dayId]&&nParse(o[dayId][key])!=null) ? o[dayId][key] : def; }
+
+/* 各緊湊天：錨點定義＋時間軸產生器 */
+const NOW_CFG = {
+  d6:{ anchors:[ {k:"a1",label:"Luzern 發車（PE 2918）",def:"09:06"}, {k:"a2",label:"First Gondola 搭乘",def:"12:30"} ],
+    build(a1,a2){
+      const arrOst=a1+108, top=a2+30, hike=a2+45, turn=a2+150, back=a2+225, cliff=a2+255, sta=a2+285, dn=a2+315;
+      return { tl:[
+        { s:a1-25, e:a1, ph:"前往車站", do:"前往 Luzern 車站", tip:`<strong>${nmm(a1)} 發車（PE 2918）</strong>，上車後坐右側靠窗有湖景`, hard:a1 },
+        { s:a1, e:arrOst, ph:"移動中", do:`Interlaken Express → ${nmm(arrOst)} 抵達 Interlaken Ost`, tip:"坐右側靠窗，沿途湖景" },
+        { s:arrOst, e:a2, ph:"轉車＋放行李", do:"轉車往 Grindelwald → 飯店放行李 → BGF 纜車站", tip:`抵達 Grindelwald<strong>別急著出站</strong>，月台上就是全鎮最美視角；<strong>${nmm(a2)} 前要到 BGF 搭纜車</strong>（車站步行 10 分或巴士 121/122/123）`, hard:a2 },
+        { s:a2, e:top, ph:"上山中", do:`First Gondola → 約 ${nmm(top)} 抵達 First 山頂`, tip:"" },
+        { s:top, e:hike, ph:"山頂", do:"簡單吃行動糧、稍作休息", tip:`<strong>${nmm(hike)} 前出發往 Bachalpsee</strong>，別坐下來悠閒用餐`, hard:hike },
+        { s:hike, e:turn, ph:"健行中", do:"Bachalpsee 巴克普湖 去程＋湖邊拍照", tip:`<strong>最晚 ${nmm(turn)} 從湖邊折返</strong>`, hard:turn },
+        { s:turn, e:back, ph:"健行中", do:"Bachalpsee → 折返回 First 山頂", tip:`約 ${nmm(back)} 回到山頂` },
+        { s:back, e:cliff, ph:"填空行程", do:"First Cliff Walk（20–30 分）", tip:"就在纜車站旁" },
+        { s:cliff, e:sta, ph:"收尾", do:"回到纜車站", tip:`<strong>${nmm(sta)} 前務必回到纜車站</strong>（末班約 18:00）`, hard:sta },
+        { s:sta, e:dn, ph:"下山中", do:"Gondola → Grindelwald", tip:"" }
+      ],
+      early:{ ph:"還沒開始", do:`今天 ${nmm(a1-25)} 前往 Luzern 車站`, tip:`<strong>${nmm(a1)} 發車（PE 2918）</strong>；今晚入住 Grindelwald` },
+      done:{ ph:"今日行程完成", do:"Grindelwald 小鎮散步・晚餐 🎉", tip:"明天 8/21 瀑布鎮，08:30 前出發" } };
+    } },
+  d8:{ anchors:[ {k:"a1",label:"Eiger Express 發車",def:"08:17"}, {k:"a2",label:"下山預約班次",def:"13:15"} ],
+    build(a1,a2){
+      const leave=a1-57, arrT=a1-32, g1=a1-10, top=a1+84, g2=a2-15, eg=a2+40, hikeEnd=eg+110, wab=hikeEnd+30, gw=wab+25, lv=gw+40, bern=lv+90;
+      return { tl:[
+        { s:leave, e:arrT, ph:"前往車站", do:"從飯店出發 → Grindelwald Terminal", tip:`<strong>${nmm(arrT)} 前要抵達 Terminal</strong>，站內 Coop 可先買午餐備用糧`, hard:arrT },
+        { s:arrT, e:g1, ph:"車站", do:"Terminal 內購糧・準備過閘門", tip:`<strong>${nmm(g1)} 前要通過閘門</strong>，別逛太久`, hard:g1 },
+        { s:g1, e:a1, ph:"候車", do:`已過閘門，等 ${nmm(a1)} Eiger Express 發車`, tip:"上車後<strong>坐右側</strong>，看得到艾格峰岩壁" },
+        { s:a1, e:top, ph:"上山中", do:`Eiger Express → 齒軌 → ${nmm(top)} 抵達 Jungfraujoch`, tip:"齒軌在<strong>冰海站 Eismeer 停 5–10 分鐘</strong>，可下車看卡利冰河" },
+        { s:top, e:g2, ph:"山頂環線", do:"斯芬克斯觀景台 → 雪原平台 → 體驗館／冰宮 → 用餐", tip:`天氣晴<strong>先衝觀景台＋雪原</strong>；<strong>${nmm(g2)} 前要往回程搭車處、通過閘門</strong>`, hard:g2 },
+        { s:g2, e:a2, ph:"候車", do:`通過回程閘門，等 ${nmm(a2)} 預約班次`, tip:"班次可在發車 45 分鐘前線上免費改期" },
+        { s:a2, e:eg, ph:"下山中", do:`齒軌下山 → 約 ${nmm(eg)} 抵達 Eigergletscher`, tip:"開始健行前先補水、簡單墊胃" },
+        { s:eg, e:hikeEnd, ph:"健行中", do:"Eiger Walk（2.1 km，大多緩下坡）", tip:`<strong>${nmm(hikeEnd)} 前要走完</strong>，接小夏戴克 ${nmm(wab)} 的車；沿途沒有補給站`, hard:hikeEnd },
+        { s:hikeEnd, e:wab, ph:"排隊候車", do:`小夏戴克排隊，等 ${nmm(wab)} 溫根阿爾卑斯鐵路`, tip:"<strong>看月台代號：搭 B 線月台</strong>（往格林德瓦），A 線是往溫根，上車前再確認" },
+        { s:wab, e:gw, ph:"下山中", do:`Wengernalp Railway → ${nmm(gw)} 抵達 Grindelwald`, tip:"" },
+        { s:gw, e:lv, ph:"整裝", do:"拿寄放行李・整理", tip:`<strong>${nmm(lv)} 要出發往 Bern</strong>（車程約 1.5 小時）`, hard:lv },
+        { s:lv, e:bern, ph:"移動中", do:`前往 Bern，約 ${nmm(bern)} 抵達`, tip:"今晚住 Akomo Bern" }
+      ],
+      early:{ ph:"還沒開始", do:`今天 ${nmm(leave)} 從飯店出發`, tip:`<strong>${nmm(arrT)} 前抵達 Grindelwald Terminal</strong>；出門前看一眼少女峰 Webcam 確認天氣` },
+      done:{ ph:"今日行程完成", do:"抵達 Bern，晚餐時間 🎉", tip:"明天 8/23 伯恩市區，不用通勤、時間充裕" } };
+    } },
+  d10:{ anchors:[ {k:"a1",label:"Bern 出發 IC6",def:"08:07"} ],
+    build(a1){
+      const zmt=a1+130, cab=zmt+30, rot=cab+45, dnb=rot+43, lunch=dnb+25, stel=lunch+50, mur=stel+55, sun=mur+140, dn=sun+30;
+      return { tl:[
+        { s:a1-25, e:a1, ph:"前往車站", do:"前往 Bern 車站", tip:`<strong>${nmm(a1)} IC6 發車</strong>`, hard:a1 },
+        { s:a1, e:zmt, ph:"移動中", do:`IC6 → ${nmm(zmt)} 抵達 Zermatt`, tip:"" },
+        { s:zmt, e:cab, ph:"放行李", do:"行李放飯店，輕裝上山", tip:"<strong>Sunnegga 纜車站就在 Hotel Welschen 門口</strong>，進站走 80–150 公尺地下隧道；現場購票、不需預約" },
+        { s:cab, e:rot, ph:"上山中", do:"纜車三段：Sunnegga → Blauherd → Rothorn", tip:"跟著指標轉乘，共三段" },
+        { s:rot, e:dnb, ph:"山頂", do:"Rothorn 山頂欣賞馬特洪峰全景", tip:"海拔 3,103m；<strong>拍照推薦中午以前</strong>，過午容易背光" },
+        { s:dnb, e:lunch, ph:"下山中", do:"下山至 Blauherd", tip:"" },
+        { s:lunch, e:stel, ph:"午餐", do:"Blauherd 午餐", tip:"" },
+        { s:stel, e:mur, ph:"拍照", do:"Stellisee 拍馬特洪峰倒影（來回 45–60 分）", tip:"" },
+        { s:mur, e:sun, ph:"健行中", do:"土撥鼠小徑 Murmelweg → Leisee／沃利公園 → Sunnegga", tip:`全程 3.8 公里、幾乎全程下坡；<strong>${nmm(sun)} 前回到 Sunnegga</strong>（末班纜車約 18:00）；沿路無遮蔽注意防曬`, hard:sun },
+        { s:sun, e:dn, ph:"下山中", do:"Sunnegga → 纜車 → Zermatt", tip:"" }
+      ],
+      early:{ ph:"還沒開始", do:`今天 ${nmm(a1-25)} 前往 Bern 車站`, tip:`<strong>${nmm(a1)} IC6 發車</strong> → ${nmm(zmt)} 抵達 Zermatt` },
+      done:{ ph:"今日行程完成", do:"回到 Zermatt，逛 Hinterdorf 老村區・晚餐 🎉", tip:"超市補給：<strong>車站旁 Denner 最便宜</strong>；明天雙山，還沒訂 8/27 Rock Experience 今晚訂" } };
+    } },
+  d11:{ anchors:[ {k:"a1",label:"Gornergrat 齒軌上山",def:"08:00"} ],
+    build(a1){
+      const top=a1+33, rif=690, lunch=750, gStart=795, gEnd=940, dn=990;
+      return { tl:[
+        { s:a1-15, e:a1, ph:"候車", do:"Zermatt GGB 齒軌車站（火車站正對面）", tip:"<strong>至少提早 15 分鐘上車</strong>，夏季人很多；v1 坐右邊、v2 坐左邊", hard:a1 },
+        { s:a1, e:top, ph:"上山中", do:`齒軌列車 33 分 → Gornergrat 觀景台`, tip:"下車後還要走 10–15 分鐘上坡" },
+        { s:top, e:rif, ph:"觀景＋拍湖", do:"Gornergrat 觀景台 → 下山中停 Rotenboden 拍 Riffelsee 倒影", tip:"<strong>Riffelsee 中午前光線最好，最晚 11:30 離開</strong>；再往前一小段還有第二個小湖", hard:rif },
+        { s:rif, e:lunch, ph:"午餐", do:"午餐（v1 回 Zermatt／v2 Riffelberg 站餐廳）", tip:"Rotenboden 站沒有餐廳" },
+        { s:lunch, e:gStart, ph:"轉場", do:"前往冰川天堂路線（v1 接駁巴士→纜車／v2 Riffelberg→Furi）", tip:"v1 轉場：走路 20 分或免費接駁巴士 3 分" },
+        { s:gStart, e:gEnd, ph:"山頂遊覽", do:"馬特洪峰冰川天堂：冰宮・360 觀景台", tip:`<strong>${nmm(gEnd)} 開始下山</strong> —— 末班纜車 16:30 是今天唯一硬性時間`, hard:gEnd },
+        { s:gEnd, e:dn, ph:"下山中", do:"纜車下山 → Zermatt", tip:"末班：冰川天堂 16:30｜Furi→Trockener Steg 16:45" }
+      ],
+      early:{ ph:"還沒開始", do:`今天 ${nmm(a1-15)} 到 GGB 齒軌車站`, tip:`<strong>${nmm(a1)} 上山</strong>；一早湖面平靜最好拍倒影` },
+      done:{ ph:"今日行程完成", do:"回到 Zermatt，晚餐 🎉", tip:"明天中午前往蘇黎世，早上可補拍日出（Kirchbrücke）" } };
+    } },
+  d13:{ anchors:[ {k:"a0",label:"Zürich HB 出發",def:"08:30"}, {k:"a1",label:"Rock Experience 時段",def:"14:30"} ],
+    build(a0,a1){
+      const sh=a0+45, old=sh+60, mun=old+40, lau=mun+30, pier=a1-20, boat=a1, be=a1+30, north=be+60, s9=north+30, hb=s9+50;
+      return { tl:[
+        { s:a0-20, e:a0, ph:"前往車站", do:"前往 Zürich HB", tip:`<strong>${nmm(a0)} 發車</strong>往 Schaffhausen（40–50 分）`, hard:a0 },
+        { s:a0, e:sh, ph:"移動中", do:`火車 → 約 ${nmm(sh)} 抵達 Schaffhausen`, tip:"" },
+        { s:sh, e:old, ph:"老城散步", do:"Vorstadt → Fronwagplatz → Vordergasse（約 1 小時）", tip:"重點：彩繪立面老屋、Erker 飄窗、騎士之家" },
+        { s:old, e:mun, ph:"堡壘", do:"Munot 堡壘（30–45 分）", tip:"進大門後<strong>別直走上樓</strong>，螺旋步道入口在大門旁邊" },
+        { s:mun, e:lau, ph:"移動中", do:"火車 → Schloss Laufen（南岸）→ 電梯上城堡", tip:"" },
+        { s:lau, e:pier, ph:"南岸觀景", do:"Rheinbrücke 高處 → Panoramaweg：Belvedere → Känzeli → Fischetz", tip:`Belvedere 視野最寬｜Känzeli 最近水面會噴濕｜Fischetz 要低頭；<strong>${nmm(pier)} 前要到南岸碼頭</strong>（開船前 20 分鐘）`, hard:pier },
+        { s:pier, e:boat, ph:"候船", do:"南岸碼頭 → 2 號紅線渡輪 → Schlössli Wörth", tip:`渡輪已含在船票裡、每 15 分鐘一班；<strong>${nmm(boat)} Rock Experience 開船</strong>`, hard:boat },
+        { s:boat, e:be, ph:"遊船中", do:"Rock Experience 遊船（約 30 分）", tip:"中途停靠巨岩可爬 100 多階上 30 公尺觀景平台；盡量坐船頭或靠外側" },
+        { s:be, e:north, ph:"北岸觀景", do:"高處觀景平台拍全景 → 沿河岸到北側觀景區", tip:"下午北岸拍瀑布順光" },
+        { s:north, e:s9, ph:"移動中", do:"電梯 → Neuhausen Rheinfall 站", tip:"<strong>坡很陡，搭電梯別用走的</strong>；S9 每 30 分鐘一班" },
+        { s:s9, e:hb, ph:"回程", do:`S9 區間車 → 約 ${nmm(hb)} 回到 Zürich HB`, tip:"" }
+      ],
+      early:{ ph:"還沒開始", do:`今天 ${nmm(a0-20)} 前往 Zürich HB`, tip:`<strong>${nmm(a0)} 發車</strong>；上午老城順光、下午北岸拍瀑布順光` },
+      done:{ ph:"今日行程完成", do:"回到蘇黎世，晚餐・整理行李 🎉", tip:"明天 8/28 搭機，晚安" } };
+    } }
+};
+
+function nowSegHtml(seg, next, t){
+  let h = `<div class="nc-phase">▸ ${seg.ph}</div><div class="nc-doing">${seg.do}</div>`;
+  if (seg.tip) h += `<div class="nc-tip">${seg.tip}</div>`;
+  if (seg.s !== undefined){
+    const pct = Math.max(0, Math.min(100, Math.round((t-seg.s)/(seg.e-seg.s)*100)));
+    h += `<div class="nc-bar"><i style="width:${pct}%"></i></div>
+          <div class="nc-lab"><span>${nmm(seg.s)}</span><span>${pct}%</span><span>${nmm(seg.e)}</span></div>`;
+    const left = seg.e - t;
+    if (seg.hard){
+      const cls = left<=15 ? "danger" : left<=30 ? "warn" : "";
+      const icon = left<=15 ? "⚠️ " : left<=30 ? "⏰ " : "";
+      h += `<div class="nc-count ${cls}">${icon}距離 <b>${nmm(seg.hard)}</b> 硬時限還有 <b>${ndur(left)}</b></div>`;
+    } else {
+      h += `<div class="nc-count ok">此段沒有硬時限，還有 <b>${ndur(left)}</b>，安心慢慢來</div>`;
+    }
+  }
+  if (next) h += `<div class="nc-next"><div class="nl">接下來</div><div class="nt"><b>${nmm(next.s)}</b>　${next.do}</div></div>`;
+  return h;
+}
+
+function renderNow(){
+  const box = $("#nowBody"), note = $("#nowNote");
+  if(!box) return;
+  const sw = swissNow();
+  note.textContent = (TEST_NOW ? "🧪 測試模式・" : "瑞士時間 ") + `${sw.label}・${nmm(sw.min)}`;
+
+  /* 非行程日 */
+  if (sw.idx < 0 || sw.idx >= DAYS.length){
+    const inner = sw.idx < 0
+      ? `<div class="nc-phase">▸ 出發倒數</div><div class="nc-doing">距離出發還有 ${-sw.idx} 天 🇨🇭</div><div class="nc-tip">8/17 抵達 Como；出發前記得完成「待辦事項」清單</div>`
+      : `<div class="nc-phase">▸ 旅程結束</div><div class="nc-doing">瑞士行圓滿落幕 🎉</div><div class="nc-tip">歡迎回家，照片記得備份</div>`;
+    box.innerHTML = `<div class="now-card"><div class="now-head"><span class="dot2"></span><b>現在該做什麼</b><small>${sw.label}・${nmm(sw.min)}</small></div><div class="now-body">${inner}</div></div>`;
+    return;
+  }
+
+  const day = DAYS[sw.idx], cfg = NOW_CFG[day.id];
+  let inner = "";
+
+  if (cfg){
+    const vals = cfg.anchors.map(a => nParse(ancVal(day.id, a.k, a.def)));
+    const R = cfg.build(...vals);
+    let seg=null, next=null;
+    for (let i=0;i<R.tl.length;i++) if (sw.min>=R.tl[i].s && sw.min<R.tl[i].e){ seg=R.tl[i]; next=R.tl[i+1]||null; break; }
+    if (!seg && sw.min <  R.tl[0].s){ seg=R.early; next=R.tl[0]; }
+    if (!seg && sw.min >= R.tl[R.tl.length-1].e) seg=R.done;
+    inner = nowSegHtml(seg, next, sw.min);
+    inner += `<div class="nc-anchors"><div class="al">🚂 關鍵班次（改了整天自動重排，會記住）</div><div class="row">`+
+      cfg.anchors.map(a=>`<label>${a.label}<input type="time" data-anc="${a.k}" data-day="${day.id}" value="${ancVal(day.id,a.k,a.def)}"></label>`).join("")+
+      `</div></div>`;
+  } else {
+    inner = `<div class="nc-phase">▸ 今天</div><div class="nc-doing">${day.title}</div>`+
+      (day.alertShort ? `<div class="nc-tip">⏰ ${day.alertShort}</div>` : "")+
+      `<div class="nc-simple">🏨 今晚：<b>${day.hotel}</b><br>今天行程較有彈性，細節看完整行程；重點提醒都在當天卡片裡。</div>`;
+  }
+
+  const firstMap = (day.maps && day.maps[0]) ? day.maps[0].url : null;
+  inner += `<div class="nc-btns"><button type="button" data-target="${day.id}">📖 今日完整行程</button>`+
+    (firstMap ? `<button type="button" data-url="${firstMap}">🥾 今日步行導航</button>` : "")+`</div>`;
+
+  box.innerHTML = `<div class="now-card"><div class="now-head"><span class="dot2"></span><b>現在該做什麼</b><small>${day.date}（${day.wd}）${day.nav}・${nmm(sw.min)}</small></div><div class="now-body">${inner}</div></div>`;
+}
+
+/* 錨點輸入：change 即存＋重算 */
+document.addEventListener("change", e=>{
+  const inp = e.target.closest("input[data-anc]");
+  if(!inp) return;
+  if (nParse(inp.value) == null) return;
+  const o = loadAnc();
+  (o[inp.dataset.day] = o[inp.dataset.day] || {})[inp.dataset.anc] = inp.value;
+  saveAnc(o);
+  renderNow();
+});
+
+renderNow();
+setInterval(renderNow, 30000);
+document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) renderNow(); });
 </script>
 </body>
 </html>
